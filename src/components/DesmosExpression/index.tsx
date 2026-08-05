@@ -48,7 +48,8 @@ function colorValue(color: ExpressionColor = "blue") {
 }
 
 function ExpressionIcon({ item }: { item: DesmosExpressionItem }) {
-  const type = item.type ?? "parametricSolid";
+  if (!item.type) return null;
+  const type = item.type;
   const isParametric = type.startsWith("parametric");
   const isPolygon = type.startsWith("polygon");
   const lineStyle = type.endsWith("Dashed")

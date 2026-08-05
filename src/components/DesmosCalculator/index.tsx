@@ -33,9 +33,9 @@ type CommonProps = {
 };
 
 type InitialDataProps =
-  | {expressions?: DesmosExpression[]; state?: never; hash?: never}
-  | {state: DesmosState; expressions?: never; hash?: never}
-  | {hash: string; expressions?: never; state?: never};
+  | { expressions?: DesmosExpression[]; state?: never; hash?: never }
+  | { state: DesmosState; expressions?: never; hash?: never }
+  | { hash: string; expressions?: never; state?: never };
 
 export type DesmosCalculatorProps = CommonProps & InitialDataProps;
 
@@ -74,7 +74,7 @@ export function DesmosButton({
 }: DesmosButtonProps) {
   const calculator = useDesmosCalculator();
   const label = React.Children.map(children, (child) =>
-    React.isValidElement<{children?: ReactNode}>(child) && child.type === "p"
+    React.isValidElement<{ children?: ReactNode }>(child) && child.type === "p"
       ? child.props.children
       : child,
   );
@@ -103,7 +103,7 @@ export default function DesmosCalculator({
   showCaption = false,
   ...initialData
 }: DesmosCalculatorProps) {
-  const {i18n} = useDocusaurusContext();
+  const { i18n } = useDocusaurusContext();
   const elementRef = useRef<HTMLDivElement>(null);
   const calculatorRef = useRef<DesmosInstance | null>(null);
   const [calculator, setCalculator] = useState<DesmosInstance | null>(null);
@@ -131,6 +131,7 @@ export default function DesmosCalculator({
           expressions: !compact,
           settingsMenu: !compact,
           zoomButtons: true,
+          border: false,
           language: i18n.currentLocale === "ja" ? "ja" : "en",
           ...options,
         });
@@ -171,7 +172,7 @@ export default function DesmosCalculator({
           </div>
         )}
         {!failed && (
-          <div className="desmos-stage" style={{height}} aria-busy={!loaded}>
+          <div className="desmos-stage" style={{ height }} aria-busy={!loaded}>
             <div ref={elementRef} className="desmos-graph" />
             {!loaded && (
               <div className="desmos-loading" role="status">
@@ -191,19 +192,11 @@ export default function DesmosCalculator({
       {content}
       <figcaption className="desmos-caption">
         <a href={getDesmosUrl(hash, kind)} target="_blank" rel="noopener noreferrer">
-          {i18n.currentLocale === "ja"
-            ? "Desmos で開く ↗"
-            : "Open in Desmos ↗"}
+          {i18n.currentLocale === "ja" ? "Desmos で開く ↗" : "Open in Desmos ↗"}
         </a>
       </figcaption>
     </figure>
   );
 }
 
-export type {
-  DesmosExpression,
-  DesmosInstance,
-  DesmosKind,
-  DesmosMathBounds,
-  DesmosState,
-};
+export type { DesmosExpression, DesmosInstance, DesmosKind, DesmosMathBounds, DesmosState };

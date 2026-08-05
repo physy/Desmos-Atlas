@@ -9,8 +9,9 @@
   --ifm-color-primary-lighter: #61a36c;
   --ifm-color-primary-lightest: #84b98b;
   --ifm-font-family-base: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --ifm-font-family-monospace: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --ifm-font-family-monospace:
+    ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
   --ifm-heading-font-weight: 700;
   --ifm-navbar-height: 4.5rem;
   --atlas-ink: #102e1d;
@@ -686,7 +687,7 @@ html[lang^="ja"] {
 .desmos-symbol--folder {
   border: 2px solid #8a8f8c;
   color: #777;
-  background: #fff;
+  background: none;
 }
 .desmos-symbol--action .desmos-symbol__glyph::before {
   top: 7px;
@@ -769,8 +770,8 @@ html[lang^="ja"] {
 .desmos-symbol--folder .desmos-symbol__glyph::before {
   top: 5px;
   left: 2px;
-  width: 15px;
-  height: 10px;
+  width: 13px;
+  height: 8px;
   border-radius: 2px;
   background: #777;
 }
@@ -848,4 +849,14 @@ html[lang^="ja"] {
 }
 .footer--dark {
   --ifm-footer-background-color: var(--atlas-ink);
+}
+
+/* expressions scrollable */
+.dcg-mq-editable-field
+  .dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block {
+  overflow-x: auto;
+}
+.dcg-mq-editable-field
+  .dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block.dcg-mq-root-block {
+  scrollbar-width: none;
 }
