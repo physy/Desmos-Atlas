@@ -1,0 +1,19 @@
+---
+title: Graph gallery
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+
+# Graph gallery
+
+Embed any public Desmos graph using its ID. The component fetches its state and restores a fully interactive graph through the Desmos API `setState()` method.
+
+<DesmosEmbed id="oru30qw4yy" title="Embedded Desmos graph" height={540} />
+
+```mdx
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+
+<DesmosEmbed id="oru30qw4yy" title="Description of the graph" />
+```
+
+For the URL `https://www.desmos.com/calculator/abc123`, the `id` is `abc123`.

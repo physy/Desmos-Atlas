@@ -1,0 +1,68 @@
+---
+title: 点・ラベル・ベクトル
+description: Desmosで点、動的ラベル、ドラッグ可能な点、ベクトルを扱う方法。
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# 点・ラベル・ベクトル
+
+## 点
+
+$(1,2)$ のように書くと点を描画できます。式の左側にある設定から、点の大きさや形を変更できます。
+
+<DesmosEmbed id="zykwtu6bpa" title="点の表示設定" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+## ラベル
+
+点の設定で「ラベル」を有効にすると、点の横に文字を表示できます。点だけを非表示にすれば、グラフ上へ文字だけを配置する用途にも使えます。
+
+<DesmosEmbed id="m8jhlfbd92" title="点のラベル" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+### 変数の値を表示する
+
+ラベルに `${変数名}` と書くと、その変数の現在値を表示できます。たとえば $a=11$ のとき、ラベルを `a=${a}` とすれば `a=11` と表示され、スライダーに合わせて更新されます。
+
+<DesmosEmbed id="ki6gzcaidq" title="ラベルに変数を表示" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+:::info[ラベルの配置]
+
+変数を埋め込んだラベルは、文字数の変化で位置が揺れないよう左揃えにすると見やすくなります。
+
+<img className="desmos-article-image" src="/img/basic/point/label-options.png" alt="Desmosのラベル配置オプション" loading="lazy" />
+
+:::
+
+### TeXで数式を表示する
+
+ラベルをバッククォート `` ` `` で囲むと、内部がTeXとして組版されます。シングルクォートではない点に注意してください。
+
+<DesmosEmbed id="prcxqulalb" title="ラベルをTeXで表示" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+## ドラッグ可能な点
+
+$(a,b)$ のように座標へ変数を使うと、ドラッグ可能な点になります。$(a,a^2)$ とすれば放物線に沿って動かせます。変数の範囲を設定すれば、移動範囲も制限できます。
+
+<DesmosEmbed id="aqa2szzwmo" title="ドラッグ可能な点" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+点に結び付いた変数を動かすことで、図形全体を視覚的に操作できます。
+
+<DesmosEmbed id="lqlk6dzmo0" title="点で三角形を操作する例" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+## ベクトル
+
+点はベクトルとしても扱え、基本演算や媒介変数表示に利用できます。
+
+<DesmosExpression expressions={[
+  '(1,0)+2(0,1)=(1,2)',
+  '(1,2)\\cdot(2,3)=8',
+  '|(3,4)|=5',
+  '(2,2)+(1,0)t',
+]} />
+
+`(1,2).x` と `(1,2).y` で各座標を参照できます。これを使うと、ベクトルを任意の角度だけ回転する関数も作れます。
+
+<DesmosEmbed id="zvcng23qal" title="ベクトルを回転する例" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+2D版にはベクトルを直接矢印として描く関数がないため、必要なら `polygon()` で矢印を構成します。

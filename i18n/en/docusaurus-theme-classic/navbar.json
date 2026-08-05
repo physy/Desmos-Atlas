@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "Desmos Atlas",
+    "description": "The title in the navbar"
+  },
+  "item.label.Wiki": {
+    "message": "Wiki",
+    "description": "Navbar item with label Wiki"
+  },
+  "item.label.ギャラリー": {
+    "message": "Gallery",
+    "description": "Navbar item with label ギャラリー"
+  },
+  "item.label.記事を書く": {
+    "message": "Contribute",
+    "description": "Navbar item with label 記事を書く"
+  },
+  "item.label.Desmos を開く ↗": {
+    "message": "Open Desmos ↗",
+    "description": "Navbar item with label Desmos を開く ↗"
+  }
+}

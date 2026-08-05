@@ -1,0 +1,108 @@
+---
+title: 色のカスタマイズ
+description: rgb、hsv、変数、リストを使ってDesmosの色をカスタマイズする方法。
+---
+
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+import DesmosExpression from "@site/src/components/DesmosExpression";
+
+# 色のカスタマイズ
+
+Desmosには標準色が用意されていますが、独自の色を定義してグラフやラベルへ適用することもできます。
+
+<img
+  className="desmos-article-image"
+  src="/img/basic/color/palette.png"
+  alt="Desmosの標準カラーパレット"
+  loading="lazy"
+/>
+
+## 色を定義する
+
+### `rgb(Red, Green, Blue)`
+
+赤・緑・青をそれぞれ $0$ から $255$ の範囲で指定します。
+
+<img
+  className="desmos-article-image"
+  src="/img/basic/color/rgb.png"
+  alt="rgb関数で色を作成"
+  loading="lazy"
+/>
+
+### `hsv(Hue, Saturation, Value)`
+
+色相は $0$ から $360$、彩度と明度は $0$ から $1$ の範囲で指定します。
+
+<img
+  className="desmos-article-image"
+  src="/img/basic/color/hsv.png"
+  alt="hsv関数で色を作成"
+  loading="lazy"
+/>
+
+## 定義した色を使う
+
+作成した色を変数へ代入すると、式の色選択メニューへ追加されます。変数へ格納しない限り選択肢には表示されません。
+
+<img
+  className="desmos-article-image"
+  src="/img/basic/color/use-color.png"
+  alt="独自色をグラフへ適用"
+  loading="lazy"
+/>
+
+## 変数に依存する色
+
+`rgb()` や `hsv()` の引数へ変数を入れると、値に応じて変化する色を作れます。波括弧による条件分岐も利用できます。
+
+<DesmosExpression
+  expressions={[
+    "c_1=\\mathrm{rgb}(0,a,255-a)",
+    "c_2=\\{0\\leq b\\leq1:\\mathrm{rgb}(200,0,0),1<b<2:\\mathrm{rgb}(0,200,0),2\\leq b\\leq3:\\mathrm{rgb}(0,0,200)\\}",
+  ]}
+/>
+
+<DesmosEmbed
+  id="uf6ohepy4g"
+  title="変数に依存して変化する色"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
+
+## 色のリスト
+
+`rgb()`、`hsv()` の引数にリストや `for` を使うと、複数の色をまとめて定義できます。リストで多数のグラフを描く場合に便利です。
+
+<DesmosExpression
+  expressions={[
+    "P=(x,y)\\ \\mathrm{for}\\ x=[0,1],y=[0,1]",
+    "c=\\mathrm{rgb}(0,200-100P.x,100P.y)",
+    "P+0.3(\\cos t,\\sin t)",
+  ]}
+/>
+
+<DesmosEmbed
+  id="9hcq3xrddz"
+  title="リストで複数の色を使う例"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
+
+多数の色を定義すれば、グラデーションも表現できます。
+
+<DesmosExpression
+  expressions={[
+    "D=[0,...,255]",
+    "c=\\mathrm{rgb}(0,255-D,D)",
+    "d=0.02",
+    "y=dD\\{0\\leq x\\leq255d\\}",
+  ]}
+/>
+
+<DesmosEmbed
+  id="hdo234k1a3"
+  title="色リストで作るグラデーション"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>

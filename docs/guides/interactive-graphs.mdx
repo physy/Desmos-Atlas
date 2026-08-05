@@ -1,0 +1,80 @@
+---
+title: JavaScript でグラフを操作する
+---
+
+import DesmosCalculator, {
+  DesmosButton,
+  DesmosControls,
+} from '@site/src/components/DesmosCalculator';
+
+export const waveExpressions = [
+  {id: 'wave', latex: 'y=a\\sin(bx)', color: '#388c46'},
+  {id: 'a', latex: 'a=2', sliderBounds: {min: 0, max: 4, step: 0.1}},
+  {id: 'b', latex: 'b=1', sliderBounds: {min: 0.2, max: 4, step: 0.1}},
+];
+
+# JavaScript でグラフを操作する
+
+`DesmosCalculator` はAPIの読み込み、初期化、破棄を担当します。記事固有の式やボタン操作はMDX側に記述します。
+
+<DesmosCalculator
+  height={520}
+  expressions={waveExpressions}
+  bounds={{left: -8, right: 8, bottom: -5, top: 5}}
+>
+  <DesmosControls label="表示するグラフ">
+    <DesmosButton onPress={(calculator) => {
+      calculator.removeExpression({id: 'shape'});
+      calculator.setExpression({id: 'wave', latex: 'y=a\\sin(bx)', color: '#388c46'});
+    }}>
+      正弦波
+    </DesmosButton>
+    <DesmosButton onPress={(calculator) => {
+      calculator.removeExpression({id: 'wave'});
+      calculator.setExpression({id: 'shape', latex: 'x^2+y^2=9', color: '#2d70b3'});
+    }}>
+      円
+    </DesmosButton>
+    <DesmosButton onPress={(calculator) => {
+      calculator.removeExpression({id: 'wave'});
+      calculator.setExpression({
+        id: 'shape',
+        latex: '(t\\cos(t),t\\sin(t))',
+        parametricDomain: {min: '0', max: '6\\pi'},
+        color: '#6042a6',
+      });
+    }}>
+      螺旋
+    </DesmosButton>
+  </DesmosControls>
+</DesmosCalculator>
+
+## 初期データを指定する
+
+初期値は、式の配列 `expressions`、保存済みの `state`、Desmos URL末尾の `hash` のいずれか1つを指定できます。
+
+```mdx
+<DesmosCalculator expressions={expressions} />
+<DesmosCalculator state={savedState} />
+<DesmosCalculator hash="xfsfswckqy" showCaption />
+```
+
+`hash` を指定すると、Desmosからstateを取得してAPIの `setState()` で読み込みます。`showCaption` を付けると元のグラフへのリンクも表示します。
+
+## 2D・3D・Geometry
+
+`kind` で使用するDesmosツールを選択します。省略時は `2d` です。
+
+```mdx
+<DesmosCalculator kind="2d" expressions={expressions} />
+<DesmosCalculator kind="3d" state={threeDimensionalState} />
+<DesmosCalculator kind="geometry" hash="保存済みGeometryのハッシュ" />
+```
+
+`onReady` や `useDesmosCalculator()` を使うと、より複雑な独自コンポーネントからCalculatorインスタンスを操作できます。
+
+:::caution[公開サイトでの API 利用]
+
+このサイトは開発用のデモAPIキーを使っています。3DやGeometryを含め、利用する機能が有効な本番用APIキーを取得してから公開してください。
+
+:::

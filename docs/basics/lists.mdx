@@ -1,0 +1,121 @@
+---
+title: リスト（数列）
+description: Desmosでリストを作り、複数のグラフや要素をまとめて扱う方法。
+---
+
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+import DesmosExpression from "@site/src/components/DesmosExpression";
+
+# リスト（数列）
+
+[Desmos グラフ計算機](https://www.desmos.com/calculator)でのリストの使い方を解説します。
+
+## リストの基本
+
+値をカンマで区切り、全体を `[]` で囲むと、複数の値を同時に扱えるリストを作れます。
+
+<DesmosExpression expressions={["[1,2,5]", "[(1,2),(4,1)]"]} />
+
+同じリストには同じ種類の要素を入れます。値だけでなく、点やベクトルも格納できます。リストを式へ入れると、複数のグラフを一度に描画できます。
+
+<DesmosExpression
+  expressions={[
+    { expression: "x=[2,4,7]", color: "blue" },
+    { expression: "y=[1,3]x+[3,2]", color: "purple" },
+    { expression: "[(1,2),(2,4)]", type: "points", color: "red" },
+    { expression: "(x,y)\\ \\mathrm{for}\\ x=[0,1],y=[0,1]", type: "points", color: "black" },
+  ]}
+/>
+
+<DesmosEmbed
+  id="ipsylszeka"
+  title="リストの基本例"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
+
+## リストの作成
+
+ピリオドを3つ使うと、等差数列を省略できます。リストの長さを変数に依存させることも可能です。
+
+<DesmosExpression
+  expressions={[
+    "[1,2,...,5]=[1,2,3,4,5]",
+    "[3,3.1,...,3.5]=[3,3.1,3.2,3.3,3.4,3.5]",
+    "n=4",
+    "[1,2,...,n]=[1,2,3,4]",
+  ]}
+/>
+
+`for` を使うと、リスト内包表記も利用できます。
+
+<DesmosExpression
+  expressions={[
+    "[2i\\ \\mathrm{for}\\ i=[1,2,4]]=[2,4,8]",
+    "[1\\ \\mathrm{for}\\ i=[1,2,...,100]]",
+  ]}
+/>
+
+## リストを式で使う
+
+リストの要素が順番に式へ代入され、複数のグラフが描画されます。
+
+<DesmosExpression
+  expressions={[
+    { expression: "y=[3,4]", color: "red" },
+    { expression: "x^2+y^2<[1,3]", type: "inequality", color: "blue" },
+    "A=[0.5,1]",
+    { expression: "2\\sin(Ax)", color: "green" },
+  ]}
+/>
+
+<DesmosEmbed
+  id="r6x8qmgnxb"
+  title="式の中でリストを使う例"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
+
+複数のリストを同じ式へ入れた場合は、それぞれを順番に取り出します。たとえば `([1,2],[3,4])` は $(1,3),(2,4)$ を描画します。全組み合わせを使う場合は `for` を利用します。
+
+## `for` の利用
+
+<DesmosExpression
+  expressions={[
+    "y=ax\\ \\mathrm{for}\\ a=[1,2,3]",
+    { expression: "(x,y)\\ \\mathrm{for}\\ x=[1,2,3,4],y=[2,3,4]", type: "points", color: "red" },
+  ]}
+/>
+
+<DesmosEmbed
+  id="dx8wo7bojk"
+  title="forでリストの全組み合わせを使う例"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
+
+詳しくは「[`for` と `with`](./for-with)」も参照してください。
+
+## 特定の要素を取り出す
+
+リストの後ろに `[数字]` を付けると任意の要素を取り出せます。番号は1から始まります。
+
+<DesmosExpression
+  expressions={["A=[2,4,5]", "A[1]=2", "A[3]=5", "B=[1,3,5,8]", "\\sum_{n=1}^{4}B[n]=17"]}
+/>
+
+リストで添字を指定したり、条件に合う要素だけを抽出したりもできます。
+
+<DesmosExpression
+  expressions={[
+    "A=[2,4,6,8,10]",
+    "B=[1,2]",
+    "A[2,...,4]=[4,6,8]",
+    "A[3,...]=[6,8,10]",
+    "A[B]=[2,4]",
+    "C=[1,2,...,10]",
+    "C[C>8]=[9,10]",
+  ]}
+/>
+
+`[1,3,4].count` または `count([1,3,4])` でリストの要素数を取得できます。

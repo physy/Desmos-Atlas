@@ -1,0 +1,88 @@
+---
+title: アクションとティッカー
+description: Desmosのアクション、クリック操作、ティッカー、dtとindexの使い方。
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# アクションとティッカー
+
+アクションとティッカーは、Desmosで変数を更新したり、一定時間ごとに処理したりするための強力な機能です。
+
+## アクション
+
+### アクションの基本
+
+$a$ を定義して `a->a+1` と入力すると、矢印がアクションとして認識されます。左側の実行ボタンを押すたび、$a$ が1ずつ増えます。
+
+<DesmosExpression expressions={[
+  'a=1',
+  {type: 'action', expression: 'a\\to a+1', color: 'blue'},
+]} />
+
+<img className="desmos-article-image" src="/img/basic/actions/action.gif" alt="アクションを実行して変数aを増やす様子" loading="lazy" />
+
+### 複数のアクション
+
+複数の更新をカンマで並べると同時に実行されます。右辺は更新前の値で評価されます。
+
+<DesmosExpression expressions={[
+  'a=2', 'b=1',
+  {type: 'action', expression: 'a\\to a+1,b\\to a', color: 'blue'},
+]} />
+
+1回実行すると $a=3,b=2$ になります。同じ変数へ複数の更新規則を指定することはできません。
+
+### アクションを変数へ代入する
+
+<DesmosExpression expressions={[
+  'a=2', 'b=1',
+  {type: 'action', expression: 'A=a\\to a+1', color: 'blue'},
+  {type: 'action', expression: 'B=b\\to b+1', color: 'green'},
+  {type: 'action', expression: 'C=A,B', color: 'purple'},
+]} />
+
+$C$ を実行すると $A,B$ を同時に実行できます。ただし、まとめたアクション内でも同じ変数を複数回更新することはできません。
+
+### グラフをクリックして実行する
+
+点や関数をクリック可能にし、クリック時の動作へアクションを指定できます。
+
+<img className="desmos-article-image" src="/img/basic/actions/action-click.png" alt="式をクリック可能にしてアクションを設定する画面" loading="lazy" />
+
+<DesmosEmbed id="ptoibdf7sy" title="グラフのクリックでアクションを実行" height={540} options={{expressions: true}} />
+
+グラフ内の「1増やす／減らす」というラベルをクリックすると、$a$ の値が変化します。
+
+## ティッカー
+
+ティッカーは一定時間ごとに指定したアクションを実行します。追加メニューから「ティッカー」を選択します。
+
+<img className="desmos-article-image" src="/img/basic/actions/ticker-add.png" alt="追加メニューからティッカーを選択" loading="lazy" />
+
+選択肢に出ない場合は、先にアクションを1つ作成します。Run欄へアクション、右側へ実行間隔をミリ秒で入力し、メトロノームボタンで開始します。
+
+<img className="desmos-article-image" src="/img/basic/actions/ticker-settings.png" alt="ティッカーへアクションと実行間隔を設定" loading="lazy" />
+
+## ティッカーの経過時間 `dt`
+
+処理が重いと、指定間隔どおりにティッカーを実行できないことがあります。次の例では1ミリ秒ごとに $t\to t+1$ を実行しますが、実時間とずれていきます。
+
+<DesmosEmbed id="9a3ldkhuba" title="処理が追いつかないティッカー" height={540} options={{expressions: true}} />
+
+Run欄で使える特殊変数 $\mathrm{dt}$ には、前回からの経過時間が入ります。$t\to t+\mathrm{dt}$ とすれば端末性能に依存しにくくなります。
+
+<img className="desmos-article-image" src="/img/basic/actions/ticker-dt.png" alt="ティッカーでdtを使って経過時間を取得" loading="lazy" />
+
+<DesmosEmbed id="tjvbf6t68m" title="dtで補正したティッカー" height={540} options={{expressions: true}} />
+
+## リストと `index`
+
+リストで描いた複数の要素をクリックしたとき、特殊変数 $\mathrm{index}$ から何番目がクリックされたか取得できます。
+
+<img className="desmos-article-image" src="/img/basic/actions/action-index.png" alt="クリックされたリスト要素のindexを使う設定" loading="lazy" />
+
+<DesmosEmbed id="cxkn6hyoat" title="indexに応じてアクションを変える例" height={540} options={{expressions: true}} />
+
+緑色の円を順番にクリックすると、要素ごとに異なる更新が実行されます。

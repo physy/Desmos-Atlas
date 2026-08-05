@@ -1,0 +1,30 @@
+{
+  "link.title.Atlas": {
+    "message": "Atlas",
+    "description": "The title of the footer links column with title=Atlas in the footer"
+  },
+  "link.title.Resources": {
+    "message": "Resources",
+    "description": "The title of the footer links column with title=Resources in the footer"
+  },
+  "link.item.label.はじめに": {
+    "message": "Introduction",
+    "description": "The label of footer link with label=はじめに linking to /docs/intro"
+  },
+  "link.item.label.グラフ集": {
+    "message": "Graph gallery",
+    "description": "The label of footer link with label=グラフ集 linking to /docs/gallery"
+  },
+  "link.item.label.Desmos Calculator": {
+    "message": "Desmos Calculator",
+    "description": "The label of footer link with label=Desmos Calculator linking to https://www.desmos.com/calculator"
+  },
+  "link.item.label.Desmos API": {
+    "message": "Desmos API",
+    "description": "The label of footer link with label=Desmos API linking to https://www.desmos.com/api/v1.11/docs/index.html"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 Desmos Atlas. Built with Docusaurus.",
+    "description": "The footer copyright"
+  }
+}

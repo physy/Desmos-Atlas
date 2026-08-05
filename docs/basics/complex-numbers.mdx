@@ -1,0 +1,56 @@
+---
+title: 複素数
+description: Desmosの複素数モードと複素数平面、演算、関数。
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# 複素数
+
+Desmosの複素数モードを使うと、複素数平面を直感的に描画できます。
+
+## 複素数モードを有効にする
+
+設定画面にある「複素数モード」のスイッチをオンにします。
+
+<img className="desmos-article-image" src="/img/basic/complex/settings.png" alt="Desmosの複素数モード設定" loading="lazy" />
+
+## 複素数平面
+
+複素数を入力すると、自動的に複素数平面上の点として描画されます。
+
+<DesmosExpression expressions={[
+  {type: 'point', expression: 'i', color: 'red'},
+  {type: 'point', expression: '1+2i', color: 'blue'},
+]} />
+
+<DesmosEmbed id="0qebjhg3hl" title="複素数平面の基本" height={540} options={{expressions: true, allowComplex: true}} />
+
+## 複素数の演算
+
+<DesmosExpression expressions={[
+  '(1+i)+(2-2i)=3-i',
+  '(1+i)(2-2i)=4',
+  '\\mathrm{real}(2+4i)=2',
+  '\\mathrm{imag}(2+4i)=4',
+  '\\mathrm{conj}(2+4i)=2-4i',
+  '\\mathrm{arg}(1+i)=\\frac{\\pi}{4}',
+  '|3+4i|=5',
+  'e^{i\\pi}=-1',
+]} />
+
+実部、虚部、共役、偏角、絶対値に加え、オイラーの公式も扱えます。
+
+## 発展的な関数
+
+<DesmosExpression expressions={[
+  '\\mathrm{round}(1.2+3.9i)=1+4i',
+  '\\mathrm{floor}(1.2+3.9i)=1+3i',
+  '\\mathrm{ceil}(1.2+3.9i)=2+4i',
+  '\\mathrm{mod}(1+3i,2i)=-1-i',
+  '\\mathrm{gcd}(4+2i,1-3i)=1+i',
+  '\\frac{d}{dx}(x+ix^2)=1+2ix',
+]} />
+
+詳しくは[Desmos公式の複素数解説](https://help.desmos.com/hc/en-us/articles/32902045809549-Advanced-Techniques-with-Complex-Numbers)を参照してください。

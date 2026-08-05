@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.wikiSidebar.category.基礎": {
+    "message": "Basics",
+    "description": "The label for category '基礎' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.記事作成ガイド": {
+    "message": "Writing Guide",
+    "description": "The label for category '記事作成ガイド' in sidebar 'wikiSidebar'"
+  },
+  "sidebar.wikiSidebar.category.グラフギャラリー": {
+    "message": "Graph Gallery",
+    "description": "The label for category 'グラフギャラリー' in sidebar 'wikiSidebar'"
+  }
+}

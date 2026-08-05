@@ -1,0 +1,87 @@
+---
+title: Lists and Sequences
+description: Create lists and use them to handle many values and graphs at once in Desmos.
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# Lists and Sequences
+
+## List basics
+
+Separate values with commas and surround them with square brackets to create a list.
+
+<DesmosExpression expressions={['[1,2,5]', '[(1,2),(4,1)]']} />
+
+Lists may also contain points or vectors, but every item in one list must have the same type. Placing a list inside an expression draws several graphs at once.
+
+<DesmosExpression expressions={[
+  {expression: 'x=[2,4,7]', color: 'blue'},
+  {expression: 'y=[1,3]x+[3,2]', color: 'purple'},
+  {expression: '[(1,2),(2,4)]', type: 'points', color: 'red'},
+  {expression: '(x,y)\\ \mathrm{for}\\ x=[0,1],y=[0,1]', type: 'points', color: 'black'},
+]} />
+
+<DesmosEmbed id="ipsylszeka" title="List examples" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+## Creating lists
+
+Three periods abbreviate an arithmetic sequence and allow its length to depend on another variable.
+
+<DesmosExpression expressions={[
+  '[1,2,...,5]=[1,2,3,4,5]',
+  '[3,3.1,...,3.5]=[3,3.1,3.2,3.3,3.4,3.5]',
+  'n=4', '[1,2,...,n]=[1,2,3,4]',
+]} />
+
+`for` provides list-comprehension syntax.
+
+<DesmosExpression expressions={[
+  '[2i\\ \mathrm{for}\\ i=[1,2,4]]=[2,4,8]',
+  '[1\\ \mathrm{for}\\ i=[1,2,...,100]]',
+]} />
+
+## Lists in expressions
+
+Desmos substitutes each element into the expression and draws the resulting graphs.
+
+<DesmosExpression expressions={[
+  {expression: 'y=[3,4]', color: 'red'},
+  {expression: 'x^2+y^2<[1,3]', type: 'inequality', color: 'blue'},
+  'A=[0.5,1]', {expression: '2\\sin(Ax)', color: 'green'},
+]} />
+
+<DesmosEmbed id="r6x8qmgnxb" title="Lists inside expressions" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+Multiple lists are paired by position: `([1,2],[3,4])` draws $(1,3)$ and $(2,4)$. Use `for` when you need every combination.
+
+## Using `for`
+
+<DesmosExpression expressions={[
+  'y=ax\\ \mathrm{for}\\ a=[1,2,3]',
+  {expression: '(x,y)\\ \mathrm{for}\\ x=[1,2,3,4],y=[2,3,4]', type: 'points', color: 'red'},
+]} />
+
+<DesmosEmbed id="dx8wo7bojk" title="All combinations with for" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+See [`for` and `with`](./for-with) for more details.
+
+## Selecting elements
+
+Append an index in square brackets. Desmos uses one-based indexing.
+
+<DesmosExpression expressions={[
+  'A=[2,4,5]', 'A[1]=2', 'A[3]=5',
+  'B=[1,3,5,8]', '\\sum_{n=1}^{4}B[n]=17',
+]} />
+
+Indices may themselves be lists, ranges, or conditions.
+
+<DesmosExpression expressions={[
+  'A=[2,4,6,8,10]', 'B=[1,2]', 'A[2,...,4]=[4,6,8]',
+  'A[3,...]=[6,8,10]', 'A[B]=[2,4]',
+  'C=[1,2,...,10]', 'C[C>8]=[9,10]',
+]} />
+
+Use `[1,3,4].count` or `count([1,3,4])` to obtain a list’s length.

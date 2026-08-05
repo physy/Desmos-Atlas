@@ -1,0 +1,63 @@
+---
+title: for と with
+description: Desmosのforとwithを使ったパラメータ表示、リスト処理、ローカル変数。
+---
+
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+import DesmosExpression from "@site/src/components/DesmosExpression";
+
+# `for` と `with`
+
+Desmosでは `for` と `with` を使うことで、数式をより柔軟に表現できます。
+
+## `for`
+
+### 任意の変数によるパラメータ表示
+
+通常は $t$ を使って媒介変数表示を描きますが、`for` なら任意の変数をパラメータにできます。
+
+<DesmosExpression
+  expressions={[
+    { expression: "(1,t)", color: "blue" },
+    { expression: "(2,a)\\ \\mathrm{for}\\ 0\\leq a\\leq1", color: "purple" },
+  ]}
+/>
+
+<DesmosEmbed
+  id="nodfsy2rng"
+  title="forによるパラメータ表示"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
+
+パラメータの範囲は $1\leq s\leq6$ のように両端を明示します。上限を無限大にしたい場合は `infinity` を使い、$1\leq s<\infty$ とします。
+
+### リストの要素を取り出す
+
+<DesmosExpression
+  expressions={[
+    "y=ax\\ \\mathrm{for}\\ a=[1,2,3]",
+    { expression: "(x,y)\\ \\mathrm{for}\\ x=[1,2,3,4],y=[2,3,4]", type: "points", color: "red" },
+    "[2i\\ \\mathrm{for}\\ i=[1,2,4]]=[2,4,8]",
+  ]}
+/>
+
+複数リストの場合は、すべての組み合わせを取り出します。詳しくは「[リスト](./lists)」を参照してください。
+
+## `with`
+
+### 変数の値を置き換える
+
+すでに定義した変数を、その式の中だけ別の値へ置き換えられます。
+
+<DesmosExpression expressions={["a=5", "y=ax", "y=ax\\ \\mathrm{with}\\ a=10"]} />
+
+最初の直線は $y=5x$、`with` を使った直線は $y=10x$ になります。
+
+### 式の中だけで使う変数
+
+<DesmosExpression expressions={["y=ax\\ \\mathrm{with}\\ a=5"]} />
+
+ここで定義した $a$ は他の式から参照できません。変数名の衝突を避けたいときに便利です。関数の引数を使っても同様の構造を作れます。
+
+<DesmosExpression expressions={["f(x,a)=ax", "y=f(x,5)"]} />

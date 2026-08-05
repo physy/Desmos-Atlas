@@ -1,0 +1,47 @@
+---
+title: tone関数で音を鳴らす
+description: Desmosのtone関数を使って音、曲、うなりを作る方法。
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# `tone` 関数で音を鳴らす
+
+Desmosの `tone` 関数を使うと、グラフ計算機から音を鳴らせます。周波数を変化させれば簡単な曲も作れます。
+
+## `tone(Frequency, Gain)`
+
+$\mathrm{tone}(a)$ は周波数 $a\,[\mathrm{Hz}]$ の音を鳴らします。指定できる周波数は $20\,\mathrm{Hz}$ から $20000\,\mathrm{Hz}$ です。
+
+<DesmosExpression expressions={['\\mathrm{tone}(440)']} />
+
+式の上にスピーカーボタンが現れます。最初はミュートされているため、ボタンを押して再生します。
+
+<img className="desmos-article-image" src="/img/basic/tone/tone.png" alt="tone関数の上に表示される音声再生ボタン" loading="lazy" />
+
+2つ目の引数でゲインを指定できます。
+
+<DesmosExpression expressions={['\\mathrm{tone}(440,1.5)']} />
+
+ゲインの最大値は周波数により変わり、$\min(10,660/\text{周波数})$ で決まります。
+
+## 簡単な曲
+
+次のグラフは、時間とともに周波数を変化させて曲を再生します。グラフ内のスピーカーボタンを押してください。
+
+<DesmosEmbed id="sgcgm1kcuh" title="tone関数で作る簡単な曲" height={560} options={{expressions: true, settingsMenu: false}} />
+
+## うなり
+
+近い周波数の音を重ねると、音量が周期的に変化する「うなり」が生じます。次のグラフでは周波数を変えて波形と音を確認できます。
+
+<DesmosEmbed id="ctlxyw15qr" title="tone関数でうなりを確認" height={560} options={{expressions: true, settingsMenu: true, trace: true}} />
+
+周波数 $f_1,f_2$ の2音によるうなりの周波数は
+
+$$
+|f_1-f_2|\,[\mathrm{Hz}]
+$$
+
+です。

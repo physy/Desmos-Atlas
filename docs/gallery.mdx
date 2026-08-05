@@ -1,0 +1,19 @@
+---
+title: グラフギャラリー
+---
+
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+
+# グラフギャラリー
+
+公開済みの Desmos グラフは ID だけで記事に埋め込めます。コンポーネントは ID から state を取得し、Desmos API の `setState()` で操作可能なグラフを復元します。
+
+<DesmosEmbed id="oru30qw4yy" title="Desmos の埋め込みグラフ" height={540} />
+
+```mdx
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+
+<DesmosEmbed id="oru30qw4yy" title="グラフの説明" />
+```
+
+URL が `https://www.desmos.com/calculator/abc123` なら、`id` は `abc123` です。

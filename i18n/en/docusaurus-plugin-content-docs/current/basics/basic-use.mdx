@@ -1,0 +1,83 @@
+---
+title: Getting Started with Desmos
+description: Learn the basics of expressions, variables, notes, folders, saving, and sharing in Desmos.
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# Getting Started with Desmos
+
+The [Desmos Graphing Calculator](https://www.desmos.com/calculator) is a web application for drawing graphs intuitively. A smartphone app is also available.
+
+Let’s start by drawing a few expressions.
+
+## Types of expressions
+
+Desmos can draw explicit and implicit functions, inequalities, and points.
+
+<DesmosExpression ariaLabel="Examples of expression types" expressions={[
+  {expression: 'y=x', color: 'red'},
+  {expression: 'x^2+y^2\\leq1', type: 'inequality', color: 'blue'},
+  {expression: 'x\\geq0', type: 'inequality', color: 'green'},
+  {expression: '(-1,1)', type: 'point', color: 'purple'},
+]} />
+
+<DesmosEmbed id="34oknzy9rq" title="Functions, inequalities, and points" height={560} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+The parameter $t$ can be used for parametric curves. Points and vectors are treated alike, so vector operations are also available.
+
+<DesmosExpression expressions={[
+  {expression: '(1,-2)+(1,0.5)t', color: 'red'},
+  {expression: '(-1,-1)+0.5(\\cos t,\\sin t)', color: 'blue'},
+  {expression: '(t-\\sin t,1-\\cos t)', color: 'green'},
+]} />
+
+<DesmosEmbed id="pi1y3fqqjt" title="Parametric curves" height={560} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+Using $r$ and $\theta$ creates polar graphs. The grid can also be switched to polar coordinates in the graph settings.
+
+<DesmosExpression expressions={[
+  {expression: 'r=2+\\sin 3\\theta', color: 'red'},
+  {expression: 'r=\\theta', color: 'blue'},
+]} />
+
+<DesmosEmbed id="lejwynvktq" title="Polar graphs" height={560} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+Desmos also supports lists, tables, and complex numbers. Use the colored button to the left of an expression to toggle its visibility.
+
+<img className="desmos-article-image" src="/img/desmos-use/visibility.png" alt="Toggling an expression’s visibility" loading="lazy" />
+
+## Adding variables
+
+Characters other than special graph variables such as $x,y,r,\theta$ can store values. Entering an undefined variable displays an “Add Slider” button.
+
+<img className="desmos-article-image" src="/img/desmos-use/slider.png" alt="Adding a variable slider in Desmos" loading="lazy" />
+
+Sliders provide direct control over values. You can set bounds and step sizes or animate the variable with the play button.
+
+:::info[Note]
+
+Variables can normally be referenced from every expression. Use `for` or `with` when you need a local variable. See [`for` and `with`](./for-with).
+
+:::
+
+## Adding notes
+
+Select “note” from the Add menu. On a computer, starting an empty expression with `"` also converts it into a note.
+
+## Reordering and folders
+
+Drag the left side of an expression or note to reorder it. Folders can group several items; drag expressions below a folder to include them. Typing `folder` into an empty expression creates one directly.
+
+## Saving and sharing
+
+Create a Desmos account to save graphs and manage them from the left menu. On a computer or tablet, use the Share button in the top right to generate a URL that opens the same graph for anyone.
+
+<img className="desmos-article-image" src="/img/basic/en/desmosuse/1.png" alt="Sharing a graph from Desmos" loading="lazy" />
+
+## Keyboard shortcuts
+
+Press `Command` + `/` on macOS or `Ctrl` + `/` on Windows to open the keyboard shortcut list.
+
+<img className="desmos-article-image desmos-article-image--wide" src="/img/basic/en/desmosuse/2.png" alt="Desmos keyboard shortcuts" loading="lazy" />

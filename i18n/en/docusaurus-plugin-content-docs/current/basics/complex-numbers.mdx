@@ -1,0 +1,52 @@
+---
+title: Complex Numbers
+description: Complex mode, the complex plane, arithmetic, and advanced functions in Desmos.
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# Complex Numbers
+
+Complex mode makes it possible to draw and manipulate numbers directly on the complex plane.
+
+## Enabling complex mode
+
+Open Graph Settings and turn on the Complex Mode switch.
+
+<img className="desmos-article-image" src="/img/basic/en/complex/settings.png" alt="Enabling complex mode in Desmos" loading="lazy" />
+
+## The complex plane
+
+Entering a complex number automatically draws it as a point on the complex plane.
+
+<DesmosExpression expressions={[
+  {type: 'point', expression: 'i', color: 'red'},
+  {type: 'point', expression: '1+2i', color: 'blue'},
+]} />
+
+<DesmosEmbed id="0qebjhg3hl" title="Complex plane basics" height={540} options={{expressions: true, allowComplex: true}} />
+
+## Complex arithmetic
+
+<DesmosExpression expressions={[
+  '(1+i)+(2-2i)=3-i', '(1+i)(2-2i)=4',
+  '\\mathrm{real}(2+4i)=2', '\\mathrm{imag}(2+4i)=4',
+  '\\mathrm{conj}(2+4i)=2-4i', '\\mathrm{arg}(1+i)=\\frac{\\pi}{4}',
+  '|3+4i|=5', 'e^{i\\pi}=-1',
+]} />
+
+Desmos supports real and imaginary parts, conjugates, arguments, magnitudes, and Euler’s identity.
+
+## Advanced functions
+
+<DesmosExpression expressions={[
+  '\\mathrm{round}(1.2+3.9i)=1+4i',
+  '\\mathrm{floor}(1.2+3.9i)=1+3i',
+  '\\mathrm{ceil}(1.2+3.9i)=2+4i',
+  '\\mathrm{mod}(1+3i,2i)=-1-i',
+  '\\mathrm{gcd}(4+2i,1-3i)=1+i',
+  '\\frac{d}{dx}(x+ix^2)=1+2ix',
+]} />
+
+See [Advanced Techniques with Complex Numbers](https://help.desmos.com/hc/en-us/articles/32902045809549-Advanced-Techniques-with-Complex-Numbers) in the Desmos Help Center.

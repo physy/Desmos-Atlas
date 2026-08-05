@@ -1,0 +1,125 @@
+---
+title: Desmos の基本的な使い方
+description: 数式の入力から変数、説明、フォルダー、保存と共有まで、Desmosグラフ計算機の基本操作を学びます。
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# Desmos の基本的な使い方
+
+[Desmos グラフ計算機](https://www.desmos.com/calculator)は、数式を入力するだけで直感的に多様なグラフを描けるWebアプリケーションです。スマートフォン向けアプリも提供されています。
+
+まずは、いろいろな式を描いてみましょう。
+
+## 数式の種類
+
+陽関数・陰関数・不等式・点などを描くことができます。
+
+<DesmosExpression
+  ariaLabel="Desmosで利用できる数式の例"
+  expressions={[
+    {expression: 'y=x', color: 'red'},
+    {expression: 'x^2+y^2\\leq 1', type: 'inequality', color: 'blue'},
+    {expression: 'x\\geq 0', type: 'inequality', color: 'green'},
+    {expression: '(-1,1)', type: 'point', color: 'purple'},
+  ]}
+/>
+
+<DesmosEmbed
+  id="34oknzy9rq"
+  title="陽関数・陰関数・不等式・点の例"
+  height={560}
+  options={{expressions: true, settingsMenu: false, showResetButtonOnGraphpaper: false, trace: true}}
+/>
+
+:::info[補足]
+
+$\leq,\geq$ は $\leqq,\geqq$ と同じように利用できます。グラフ内のバーチャルキーボードから入力するほか、`<=`、`>=` と入力しても変換されます。
+
+:::
+
+パラメータ変数 $t$ を用いて、媒介変数表示を描くこともできます。このとき、点とベクトルは同じように扱われるため、ベクトルの演算も可能です。
+
+<DesmosExpression
+  ariaLabel="媒介変数表示の例"
+  expressions={[
+    {expression: '(1,-2)+(1,0.5)t', color: 'red'},
+    {expression: '(-1,-1)+0.5(\\cos t,\\sin t)', color: 'blue'},
+    {expression: '(t-\\sin t,1-\\cos t)', color: 'green'},
+  ]}
+/>
+
+<DesmosEmbed
+  id="pi1y3fqqjt"
+  title="媒介変数表示の例"
+  height={560}
+  options={{expressions: true, settingsMenu: false, showResetButtonOnGraphpaper: false, trace: true}}
+/>
+
+変数を $r,\theta$ にすると、極座標表示として扱われます。右上の設定から、目盛線を極座標用に変更することもできます。
+
+<DesmosExpression
+  ariaLabel="極座標表示の例"
+  expressions={[
+    {expression: 'r=2+\\sin 3\\theta', color: 'red'},
+    {expression: 'r=\\theta', color: 'blue'},
+  ]}
+/>
+
+<DesmosEmbed
+  id="lejwynvktq"
+  title="極座標表示の例"
+  height={560}
+  options={{expressions: true, settingsMenu: false, showResetButtonOnGraphpaper: false, trace: true}}
+/>
+
+そのほか、リスト・テーブル・複素数などの機能もサポートされています。式の左にある色付きボタンを押すと、表示と非表示を切り替えられます。
+
+<img className="desmos-article-image" src="/img/desmos-use/visibility.png" alt="式の左側にある色付きボタンで表示と非表示を切り替える画面" loading="lazy" />
+
+## 変数の追加
+
+$x,y,r,\theta$ などの特別な文字以外は、値を格納する変数として利用できます。
+
+式にまだ定義されていない文字を入れると「スライダーを追加」というボタンが表示されます。これを押すと変数とスライダーが作られます。
+
+<img className="desmos-article-image" src="/img/desmos-use/slider.png" alt="Desmosで変数のスライダーを追加した画面" loading="lazy" />
+
+スライダーを動かすことで値を直感的に操作できます。定義域や刻み幅を設定したり、再生ボタンで値を連続的に変化させたりすることも可能です。
+
+:::info[補足]
+
+追加した変数は、どの式からも参照できます。式の中だけで使うローカルな変数が必要な場合は、`for` や `with` を利用できます。
+
+:::
+
+## 説明の追加
+
+左上の追加ボタンから「説明」を選ぶと、式リストに説明文を追加できます。
+
+<img className="desmos-article-image" src="/img/desmos-use/note.png" alt="Desmosの式リストに説明文を追加した画面" loading="lazy" />
+
+パソコンでは、空の式に最初から `"` を入力することでも、説明文へ切り替えられます。
+
+## 式の並べ替えとフォルダー管理
+
+式や説明文は左側をドラッグして順番を入れ替えられます。また、左上の追加ボタンからフォルダーを作り、その下へ式をドラッグすると、複数の式をまとめて管理できます。
+
+<img className="desmos-article-image" src="/img/desmos-use/folder.png" alt="フォルダーで複数の式を管理している画面" loading="lazy" />
+
+空の式に最初から `folder` と入力してフォルダーへ切り替えることもできます。
+
+## グラフの保存と共有
+
+作成したグラフは保存したり、ほかの人と共有したりできます。保存するにはDesmosのアカウントを作成し、左側のメニューからグラフを管理します。
+
+画面の大きな端末では、右上の共有ボタンを押すと共有URLを発行できます。そのURLを送れば、ほかの人も同じグラフを開けます。
+
+<img className="desmos-article-image" src="/img/desmos-use/share.png" alt="Desmosでグラフの共有URLを発行する画面" loading="lazy" />
+
+## キーボードショートカット
+
+Macでは `Command` + `/`、Windowsでは `Ctrl` + `/` を押すと、キーボードショートカットの一覧を開けます。
+
+<img className="desmos-article-image desmos-article-image--wide" src="/img/desmos-use/shortcuts.png" alt="Desmosのキーボードショートカット一覧" loading="lazy" />

@@ -1,0 +1,45 @@
+---
+title: Playing Sound with tone
+description: Use Desmos tone expressions to create sounds, simple music, and beats.
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# Playing Sound with `tone`
+
+The `tone` function plays sound from the Desmos Graphing Calculator. Changing frequencies over time can even produce simple music.
+
+## `tone(Frequency, Gain)`
+
+$\mathrm{tone}(a)$ plays a sound at frequency $a\,[\mathrm{Hz}]$. Supported frequencies range from $20\,\mathrm{Hz}$ to $20000\,\mathrm{Hz}$.
+
+<DesmosExpression expressions={['\\mathrm{tone}(440)']} />
+
+A speaker button appears above the expression. Desmos starts muted, so press the button to hear the $440\,\mathrm{Hz}$ sine wave.
+
+<img className="desmos-article-image" src="/img/basic/tone/tone.png" alt="The audio button above a tone expression" loading="lazy" />
+
+The second argument controls gain.
+
+<DesmosExpression expressions={['\\mathrm{tone}(440,1.5)']} />
+
+Maximum gain depends on frequency and is calculated as $\min(10,660/\text{frequency})$.
+
+## A simple melody
+
+This graph varies the frequency over time to play a melody. Press the speaker button inside the expression list.
+
+<DesmosEmbed id="u9maad4iw3" title="A simple melody made with tone" height={560} options={{expressions: true, settingsMenu: false}} />
+
+## Beats
+
+Combining two nearby frequencies creates a periodic change in loudness called a beat. Adjust the frequencies in this graph to see and hear the effect.
+
+<DesmosEmbed id="olycwp0fzd" title="Exploring beats with tone" height={560} options={{expressions: true, settingsMenu: true, trace: true}} />
+
+For frequencies $f_1$ and $f_2$, the beat frequency is
+
+$$
+|f_1-f_2|\,[\mathrm{Hz}].
+$$

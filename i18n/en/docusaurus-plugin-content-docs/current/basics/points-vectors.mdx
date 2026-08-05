@@ -1,0 +1,68 @@
+---
+title: Points, Labels, and Vectors
+description: Points, dynamic labels, draggable points, and vector operations in Desmos.
+---
+
+import DesmosEmbed from '@site/src/components/DesmosEmbed';
+import DesmosExpression from '@site/src/components/DesmosExpression';
+
+# Points, Labels, and Vectors
+
+## Points
+
+Enter $(1,2)$ to draw a point. Its size and style can be changed from the options to the left of the expression.
+
+<DesmosEmbed id="zykwtu6bpa" title="Point display options" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+## Labels
+
+Enable “Label” in a point’s options to display text. Hiding the point while keeping its label visible is also useful for placing text on a graph.
+
+<DesmosEmbed id="g4c8inqzfe" title="Point labels" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+### Displaying a variable
+
+Write `${variable name}` in a label to insert its current value. If $a=11$, the label `a=${a}` displays `a=11` and updates as the slider moves.
+
+<DesmosEmbed id="c5zlcufzle" title="Displaying a variable in a label" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+:::info[Label alignment]
+
+For labels containing changing values, left alignment prevents the label from shifting as its length changes.
+
+<img className="desmos-article-image" src="/img/basic/en/desmosuse/3.png" alt="Label alignment options in Desmos" loading="lazy" />
+
+:::
+
+### Typesetting labels with TeX
+
+Surround a label with backticks `` ` `` to typeset its contents as TeX. Use backticks, not single quotation marks.
+
+<DesmosEmbed id="bgbcfrmtqb" title="TeX labels" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+## Draggable points
+
+Coordinates containing variables, such as $(a,b)$, create a draggable point. $(a,a^2)$ constrains the point to a parabola, and variable bounds can limit its range.
+
+<DesmosEmbed id="aqa2szzwmo" title="A draggable point" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+Because dragging updates the associated variables, one point can provide intuitive control over an entire construction.
+
+<DesmosEmbed id="lqlk6dzmo0" title="Controlling a triangle with a point" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+## Vectors
+
+Points also behave as vectors and support arithmetic and parametric expressions.
+
+<DesmosExpression expressions={[
+  '(1,0)+2(0,1)=(1,2)',
+  '(1,2)\\cdot(2,3)=8',
+  '|(3,4)|=5',
+  '(2,2)+(1,0)t',
+]} />
+
+Use `(1,2).x` and `(1,2).y` to access the coordinates. This makes it possible to build a function that rotates a vector by any angle.
+
+<DesmosEmbed id="67fk3h9rjk" title="Rotating a vector" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+
+The 2D calculator has no direct arrow-drawing function, so `polygon()` can be used to construct arrowheads.
