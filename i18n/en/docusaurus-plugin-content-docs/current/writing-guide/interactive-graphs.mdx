@@ -53,7 +53,7 @@ export const waveExpressions = [
 
 Pass exactly one of an `expressions` array, a saved `state`, or the `hash` at the end of a Desmos URL.
 
-```mdx
+```jsx
 <DesmosCalculator expressions={expressions} />
 <DesmosCalculator state={savedState} />
 <DesmosCalculator hash="xfsfswckqy" showCaption />
@@ -65,7 +65,7 @@ With `hash`, the component fetches the saved state from Desmos and loads it thro
 
 Select the Desmos tool with `kind`. It defaults to `2d`.
 
-```mdx
+```jsx
 <DesmosCalculator kind="2d" expressions={expressions} />
 <DesmosCalculator kind="3d" state={threeDimensionalState} />
 <DesmosCalculator kind="geometry" hash="saved-geometry-hash" />

@@ -39,8 +39,10 @@ npm run preview
 ## ディレクトリ構成
 
 ```text
-docs/                                             日本語記事
-i18n/en/docusaurus-plugin-content-docs/current/   英語記事
+docs/basics/                                      日本語の基礎記事
+docs/writing-guide/                               日本語の記事作成ガイド
+docs/graph-gallery/                               日本語のグラフギャラリー
+i18n/en/docusaurus-plugin-content-docs/current/   上記と同じ構成の英語記事
 src/components/                                   MDX用の共通コンポーネント
 src/css/custom.css                                サイト全体のスタイル
 static/img/                                       記事画像

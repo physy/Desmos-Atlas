@@ -31,11 +31,11 @@ i18n/en/docusaurus-plugin-content-docs/current/basics/functions.mdx
 | ------------- | ----------------------------------------- | ------------------------------------------------ |
 | Basics        | Desmos features, notation, and operations | `docs/basics/`                                   |
 | Writing Guide | MDX, components, and authoring            | `docs/guides/`                                   |
-| Graph Gallery | Finished graphs and project explanations  | `docs/gallery.mdx` or a future gallery directory |
+| Graph Gallery | Finished graphs and project explanations  | `docs/graph-gallery/` |
 
 The sidebar order is defined in `sidebars.ts`. Add a new document ID to the appropriate category.
 
-```ts
+```typescript
 items: ["basics/basic-use", "basics/new-article"];
 ```
 
@@ -78,7 +78,7 @@ Rendered KaTeX can be copied as LaTeX with a click or keyboard action.
 
 Store images under `static/img/` and render them with `ArticleImage`, which preserves the GitHub Pages base path. Always provide useful alternative text.
 
-```mdx
+```jsx
 import ArticleImage from '@site/src/components/ArticleImage';
 
 <ArticleImage
@@ -95,7 +95,7 @@ Do not use a plain `<img src="/img/...">`, because it drops the repository subpa
 
 Pass the hash at the end of a Desmos share URL to `DesmosEmbed`. The component fetches state and loads it through the API, so the result remains interactive.
 
-```mdx
+```jsx
 import DesmosEmbed from "@site/src/components/DesmosEmbed";
 
 <DesmosEmbed id="xfsfswckqy" title="A quadratic graph" height={520} />
@@ -103,7 +103,7 @@ import DesmosEmbed from "@site/src/components/DesmosEmbed";
 
 For 3D and Geometry projects, specify the calculator type.
 
-```mdx
+```jsx
 <DesmosEmbed id="shared-hash" kind="3d" title="3D graph" />
 <DesmosEmbed id="shared-hash" kind="geometry" title="Geometry construction" />
 ```
@@ -114,7 +114,7 @@ A link to the original Desmos page appears below the embedded project.
 
 Use `DesmosExpression` when an article only needs to show expressions and should not load a calculator.
 
-```mdx
+```jsx
 import DesmosExpression from "@site/src/components/DesmosExpression";
 
 <DesmosExpression
@@ -132,7 +132,7 @@ Colors may be `red`, `blue`, `green`, `orange`, `purple`, `black`, or a hex valu
 
 Pass exactly one of `expressions`, `state`, or `hash` to `DesmosCalculator`. Keep article-specific expressions and controls in the MDX file.
 
-```mdx
+```jsx
 import DesmosCalculator, {
   DesmosButton,
   DesmosControls,
@@ -156,13 +156,13 @@ export const expressions = [
 </DesmosCalculator>
 ```
 
-See [Control graphs with JavaScript](/docs/guides/interactive-graphs) for state, hashes, 3D, Geometry, and custom controls.
+See [Control graphs with JavaScript](/docs/writing-guide/interactive-graphs) for state, hashes, 3D, Geometry, and custom controls.
 
 ## Link to another article with a card
 
 Use the shared `ArticleCard` for internal articles and external resources. Wrap multiple cards in `ArticleCardGrid`.
 
-```mdx
+```jsx
 import ArticleCard, { ArticleCardGrid } from "@site/src/components/ArticleCard";
 
 <ArticleCardGrid>

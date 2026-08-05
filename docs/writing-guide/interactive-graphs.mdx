@@ -53,7 +53,7 @@ export const waveExpressions = [
 
 初期値は、式の配列 `expressions`、保存済みの `state`、Desmos URL末尾の `hash` のいずれか1つを指定できます。
 
-```mdx
+```jsx
 <DesmosCalculator expressions={expressions} />
 <DesmosCalculator state={savedState} />
 <DesmosCalculator hash="xfsfswckqy" showCaption />
@@ -65,7 +65,7 @@ export const waveExpressions = [
 
 `kind` で使用するDesmosツールを選択します。省略時は `2d` です。
 
-```mdx
+```jsx
 <DesmosCalculator kind="2d" expressions={expressions} />
 <DesmosCalculator kind="3d" state={threeDimensionalState} />
 <DesmosCalculator kind="geometry" hash="保存済みGeometryのハッシュ" />

@@ -64,15 +64,30 @@ type DesmosButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"
   onPress: (calculator: DesmosInstance) => void;
 };
 
-export function DesmosButton({onPress, disabled, type = "button", ...props}: DesmosButtonProps) {
+export function DesmosButton({
+  onPress,
+  disabled,
+  type = "button",
+  children,
+  className,
+  ...props
+}: DesmosButtonProps) {
   const calculator = useDesmosCalculator();
+  const label = React.Children.map(children, (child) =>
+    React.isValidElement<{children?: ReactNode}>(child) && child.type === "p"
+      ? child.props.children
+      : child,
+  );
   return (
     <button
       {...props}
+      className={`desmos-control-button${className ? ` ${className}` : ""}`}
       type={type}
       disabled={disabled || !calculator}
       onClick={() => calculator && onPress(calculator)}
-    />
+    >
+      <span className="desmos-control-button__label">{label}</span>
+    </button>
   );
 }
 

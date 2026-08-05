@@ -23,12 +23,15 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "記事作成ガイド",
-      items: ["contributing", "guides/interactive-graphs"],
+      items: [
+        "writing-guide/contributing",
+        "writing-guide/interactive-graphs",
+      ],
     },
     {
       type: "category",
       label: "グラフギャラリー",
-      items: ["gallery"],
+      items: ["graph-gallery/gallery"],
     },
   ],
 };

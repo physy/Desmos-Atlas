@@ -33,11 +33,11 @@ i18n/en/docusaurus-plugin-content-docs/current/basics/functions.mdx
 | ---------------- | ----------------------------- | ---------------------------------------------------- |
 | 基礎             | Desmosの機能、記法、操作方法  | `docs/basics/`                                       |
 | 記事作成ガイド   | MDX、コンポーネント、執筆方法 | `docs/guides/`                                       |
-| グラフギャラリー | 完成したグラフ、作品の解説    | `docs/gallery.mdx` または将来のgallery用ディレクトリ |
+| グラフギャラリー | 完成したグラフ、作品の解説    | `docs/graph-gallery/` |
 
 サイドバーの並び順は `sidebars.ts` で管理します。新しい記事を追加したら、対応するカテゴリーの `items` にドキュメントIDを追加してください。
 
-```ts
+```typescript
 items: ["basics/basic-use", "basics/new-article"];
 ```
 
@@ -86,7 +86,7 @@ $$
 
 画像は `static/img/` 以下に置き、GitHub Pagesのサブパスにも対応する `ArticleImage` で参照します。内容が分かる `alt` を必ず付けてください。
 
-```mdx
+```jsx
 import ArticleImage from '@site/src/components/ArticleImage';
 
 <ArticleImage
@@ -103,7 +103,7 @@ import ArticleImage from '@site/src/components/ArticleImage';
 
 Desmosの共有URLの末尾にあるハッシュを `id` に渡します。iframeではなくAPIでstateを取得するため、埋め込み後も操作できます。
 
-```mdx
+```jsx
 import DesmosEmbed from "@site/src/components/DesmosEmbed";
 
 <DesmosEmbed id="xfsfswckqy" title="二次関数のグラフ" height={520} />
@@ -111,7 +111,7 @@ import DesmosEmbed from "@site/src/components/DesmosEmbed";
 
 通常のグラフは `kind` を省略できます。3DまたはGeometryの場合は種類を指定します。
 
-```mdx
+```jsx
 <DesmosEmbed id="共有ハッシュ" kind="3d" title="3Dグラフ" />
 <DesmosEmbed id="共有ハッシュ" kind="geometry" title="Geometry作図" />
 ```
@@ -122,7 +122,7 @@ import DesmosEmbed from "@site/src/components/DesmosEmbed";
 
 グラフを読み込まず、式だけをDesmos風に並べる場合は `DesmosExpression` を使います。
 
-```mdx
+```jsx
 import DesmosExpression from "@site/src/components/DesmosExpression";
 
 <DesmosExpression
@@ -140,7 +140,7 @@ import DesmosExpression from "@site/src/components/DesmosExpression";
 
 `DesmosCalculator` には `expressions`、`state`、`hash` のいずれか1つを渡せます。記事固有の式やボタンはMDX側に置きます。
 
-```mdx
+```jsx
 import DesmosCalculator, {
   DesmosButton,
   DesmosControls,
@@ -164,13 +164,13 @@ export const expressions = [
 </DesmosCalculator>
 ```
 
-詳しい使い方は[JavaScriptでグラフを操作する](/docs/guides/interactive-graphs)を参照してください。
+詳しい使い方は[JavaScriptでグラフを操作する](/docs/writing-guide/interactive-graphs)を参照してください。
 
 ## 他の記事へのカードを置く
 
 内部記事と外部サイトには共通の `ArticleCard` を使えます。複数枚は `ArticleCardGrid` で囲みます。
 
-```mdx
+```jsx
 import ArticleCard, { ArticleCardGrid } from "@site/src/components/ArticleCard";
 
 <ArticleCardGrid>

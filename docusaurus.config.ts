@@ -53,8 +53,8 @@ const config: Config = {
       title: 'Desmos Atlas',
       items: [
         {type: 'docSidebar', sidebarId: 'wikiSidebar', position: 'left', label: 'Wiki'},
-        {to: '/docs/gallery', label: 'ギャラリー', position: 'left'},
-        {to: '/docs/contributing', label: '記事を書く', position: 'left'},
+        {to: '/docs/graph-gallery/gallery', label: 'ギャラリー', position: 'left'},
+        {to: '/docs/writing-guide/contributing', label: '記事を書く', position: 'left'},
         {type: 'localeDropdown', position: 'right'},
         {
           href: 'https://www.desmos.com/calculator',
@@ -70,7 +70,7 @@ const config: Config = {
           title: 'Atlas',
           items: [
             {label: 'はじめに', to: '/docs/intro'},
-            {label: 'グラフ集', to: '/docs/gallery'},
+            {label: 'グラフ集', to: '/docs/graph-gallery/gallery'},
           ],
         },
         {
@@ -83,7 +83,11 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Desmos Atlas. Built with Docusaurus.`,
     },
-    prism: {theme: prismThemes.github, darkTheme: prismThemes.dracula},
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'json', 'markdown', 'typescript'],
+    },
   } satisfies Preset.ThemeConfig,
 };
 
