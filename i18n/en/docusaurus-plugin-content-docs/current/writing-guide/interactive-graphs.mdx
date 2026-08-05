@@ -5,12 +5,12 @@ title: Control graphs with JavaScript
 import DesmosCalculator, {
   DesmosButton,
   DesmosControls,
-} from '@site/src/components/DesmosCalculator';
+} from "@site/src/components/DesmosCalculator";
 
 export const waveExpressions = [
-  {id: 'wave', latex: 'y=a\\sin(bx)', color: '#388c46'},
-  {id: 'a', latex: 'a=2', sliderBounds: {min: 0, max: 4, step: 0.1}},
-  {id: 'b', latex: 'b=1', sliderBounds: {min: 0.2, max: 4, step: 0.1}},
+  { id: "wave", latex: "y=a\\sin(bx)", color: "#388c46" },
+  { id: "a", latex: "a=2", sliderBounds: { min: 0, max: 4, step: 0.1 } },
+  { id: "b", latex: "b=1", sliderBounds: { min: 0.2, max: 4, step: 0.1 } },
 ];
 
 # Control graphs with JavaScript
@@ -20,30 +20,36 @@ export const waveExpressions = [
 <DesmosCalculator
   height={520}
   expressions={waveExpressions}
-  bounds={{left: -8, right: 8, bottom: -5, top: 5}}
+  bounds={{ left: -8, right: 8, bottom: -5, top: 5 }}
 >
   <DesmosControls label="Choose a graph">
-    <DesmosButton onPress={(calculator) => {
-      calculator.removeExpression({id: 'shape'});
-      calculator.setExpression({id: 'wave', latex: 'y=a\\sin(bx)', color: '#388c46'});
-    }}>
+    <DesmosButton
+      onPress={(calculator) => {
+        calculator.removeExpression({ id: "shape" });
+        calculator.setExpression({ id: "wave", latex: "y=a\\sin(bx)", color: "#388c46" });
+      }}
+    >
       Sine wave
     </DesmosButton>
-    <DesmosButton onPress={(calculator) => {
-      calculator.removeExpression({id: 'wave'});
-      calculator.setExpression({id: 'shape', latex: 'x^2+y^2=9', color: '#2d70b3'});
-    }}>
+    <DesmosButton
+      onPress={(calculator) => {
+        calculator.removeExpression({ id: "wave" });
+        calculator.setExpression({ id: "shape", latex: "x^2+y^2=9", color: "#2d70b3" });
+      }}
+    >
       Circle
     </DesmosButton>
-    <DesmosButton onPress={(calculator) => {
-      calculator.removeExpression({id: 'wave'});
-      calculator.setExpression({
-        id: 'shape',
-        latex: '(t\\cos(t),t\\sin(t))',
-        parametricDomain: {min: '0', max: '6\\pi'},
-        color: '#6042a6',
-      });
-    }}>
+    <DesmosButton
+      onPress={(calculator) => {
+        calculator.removeExpression({ id: "wave" });
+        calculator.setExpression({
+          id: "shape",
+          latex: "(t\\cos(t),t\\sin(t))",
+          parametricDomain: { min: "0", max: "6\\pi" },
+          color: "#6042a6",
+        });
+      }}
+    >
       Spiral
     </DesmosButton>
   </DesmosControls>
@@ -72,9 +78,3 @@ Select the Desmos tool with `kind`. It defaults to `2d`.
 ```
 
 For more advanced custom components, use `onReady` or `useDesmosCalculator()` to access the Calculator instance.
-
-:::caution[Using the API in production]
-
-This site currently uses the development demo API key. Before publishing, obtain a production API key with every required feature—including 3D and Geometry—enabled.
-
-:::

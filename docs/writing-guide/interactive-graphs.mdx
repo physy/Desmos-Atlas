@@ -5,12 +5,12 @@ title: JavaScript でグラフを操作する
 import DesmosCalculator, {
   DesmosButton,
   DesmosControls,
-} from '@site/src/components/DesmosCalculator';
+} from "@site/src/components/DesmosCalculator";
 
 export const waveExpressions = [
-  {id: 'wave', latex: 'y=a\\sin(bx)', color: '#388c46'},
-  {id: 'a', latex: 'a=2', sliderBounds: {min: 0, max: 4, step: 0.1}},
-  {id: 'b', latex: 'b=1', sliderBounds: {min: 0.2, max: 4, step: 0.1}},
+  { id: "wave", latex: "y=a\\sin(bx)", color: "#388c46" },
+  { id: "a", latex: "a=2", sliderBounds: { min: 0, max: 4, step: 0.1 } },
+  { id: "b", latex: "b=1", sliderBounds: { min: 0.2, max: 4, step: 0.1 } },
 ];
 
 # JavaScript でグラフを操作する
@@ -20,30 +20,36 @@ export const waveExpressions = [
 <DesmosCalculator
   height={520}
   expressions={waveExpressions}
-  bounds={{left: -8, right: 8, bottom: -5, top: 5}}
+  bounds={{ left: -8, right: 8, bottom: -5, top: 5 }}
 >
   <DesmosControls label="表示するグラフ">
-    <DesmosButton onPress={(calculator) => {
-      calculator.removeExpression({id: 'shape'});
-      calculator.setExpression({id: 'wave', latex: 'y=a\\sin(bx)', color: '#388c46'});
-    }}>
+    <DesmosButton
+      onPress={(calculator) => {
+        calculator.removeExpression({ id: "shape" });
+        calculator.setExpression({ id: "wave", latex: "y=a\\sin(bx)", color: "#388c46" });
+      }}
+    >
       正弦波
     </DesmosButton>
-    <DesmosButton onPress={(calculator) => {
-      calculator.removeExpression({id: 'wave'});
-      calculator.setExpression({id: 'shape', latex: 'x^2+y^2=9', color: '#2d70b3'});
-    }}>
+    <DesmosButton
+      onPress={(calculator) => {
+        calculator.removeExpression({ id: "wave" });
+        calculator.setExpression({ id: "shape", latex: "x^2+y^2=9", color: "#2d70b3" });
+      }}
+    >
       円
     </DesmosButton>
-    <DesmosButton onPress={(calculator) => {
-      calculator.removeExpression({id: 'wave'});
-      calculator.setExpression({
-        id: 'shape',
-        latex: '(t\\cos(t),t\\sin(t))',
-        parametricDomain: {min: '0', max: '6\\pi'},
-        color: '#6042a6',
-      });
-    }}>
+    <DesmosButton
+      onPress={(calculator) => {
+        calculator.removeExpression({ id: "wave" });
+        calculator.setExpression({
+          id: "shape",
+          latex: "(t\\cos(t),t\\sin(t))",
+          parametricDomain: { min: "0", max: "6\\pi" },
+          color: "#6042a6",
+        });
+      }}
+    >
       螺旋
     </DesmosButton>
   </DesmosControls>
@@ -72,9 +78,3 @@ export const waveExpressions = [
 ```
 
 `onReady` や `useDesmosCalculator()` を使うと、より複雑な独自コンポーネントからCalculatorインスタンスを操作できます。
-
-:::caution[公開サイトでの API 利用]
-
-このサイトは開発用のデモAPIキーを使っています。3DやGeometryを含め、利用する機能が有効な本番用APIキーを取得してから公開してください。
-
-:::
