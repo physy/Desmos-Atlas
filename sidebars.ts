@@ -26,6 +26,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "writing-guide/contributing",
         "writing-guide/interactive-graphs",
+        "writing-guide/expression-icons",
       ],
     },
     {

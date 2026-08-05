@@ -1,0 +1,67 @@
+---
+title: Expression icon catalog
+description: Review all 18 icon types supported by DesmosExpression
+---
+
+import DesmosExpression from "@site/src/components/DesmosExpression";
+
+# Expression icon catalog
+
+This page displays all 18 icons accepted by `DesmosExpression` in the same order as Desmos. After changing the icons, review this page in both light and dark themes.
+
+<DesmosExpression
+  ariaLabel="All DesmosExpression icons"
+  expressions={[
+    { expression: "\\mathrm{parametricSolid}", type: "parametricSolid", color: "red" },
+    { expression: "\\mathrm{parametricDashed}", type: "parametricDashed", color: "red" },
+    { expression: "\\mathrm{parametricDotted}", type: "parametricDotted", color: "red" },
+    { expression: "\\mathrm{inequality}", type: "inequality", color: "blue" },
+    { expression: "\\mathrm{point}", type: "point", color: "green" },
+    { expression: "\\mathrm{points}", type: "points", color: "purple" },
+    { expression: "\\mathrm{move}", type: "move", color: "purple" },
+    { expression: "\\mathrm{moveVertical}", type: "moveVertical", color: "purple" },
+    { expression: "\\mathrm{moveHorizontal}", type: "moveHorizontal", color: "purple" },
+    { expression: "\\mathrm{polygonSolid}", type: "polygonSolid", color: "blue" },
+    { expression: "\\mathrm{polygonDashed}", type: "polygonDashed", color: "blue" },
+    { expression: "\\mathrm{polygonDotted}", type: "polygonDotted", color: "blue" },
+    { expression: "\\mathrm{action}", type: "action" },
+    { expression: "\\mathrm{play}", type: "play" },
+    { expression: "\\mathrm{pause}", type: "pause" },
+    { expression: "\\mathrm{error}", type: "error" },
+    { expression: "note", type: "note" },
+    { expression: "folder", type: "folder" },
+  ]}
+/>
+
+## Hidden state
+
+Set `hidden: true` to fade the icon while preserving the icon shape.
+
+<DesmosExpression
+  ariaLabel="Hidden expression icons"
+  expressions={[
+    { expression: "y=\\sin x", type: "parametricSolid", color: "red", hidden: true },
+    { expression: "y\\leq x^2", type: "inequality", color: "blue", hidden: true },
+    { expression: "(1,2)", type: "point", color: "green", hidden: true },
+    { expression: "a\\to a+1", type: "action", hidden: true },
+    { expression: "A hidden note", type: "note", hidden: true },
+  ]}
+/>
+
+## Use the component in an article
+
+```jsx
+import DesmosExpression from "@site/src/components/DesmosExpression";
+
+<DesmosExpression
+  expressions={[
+    { expression: "y=\\sin x", type: "parametricSolid", color: "red" },
+    { expression: "y\\leq x^2", type: "inequality", color: "blue" },
+    { expression: "(1,2)", type: "point", color: "green" },
+    { expression: "a\\to a+1", type: "action" },
+    { expression: "Explanatory text", type: "note" },
+  ]}
+/>;
+```
+
+When omitted, `type` defaults to `parametricSolid` and `color` defaults to `blue`.
