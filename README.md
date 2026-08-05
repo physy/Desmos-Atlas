@@ -3,6 +3,7 @@
 Desmosの機能、数式表現、グラフ作品を日本語と英語で共有するDocusaurus製Wikiです。記事はMarkdown／MDXで管理し、KaTeX数式、Desmosの2D・3D・Geometry、Reactコンポーネントを掲載できます。
 
 - リポジトリ: [physy/Desmos-Atlas](https://github.com/physy/Desmos-Atlas)
+- 公開サイト: [https://physy.github.io/Desmos-Atlas/](https://physy.github.io/Desmos-Atlas/)
 - Desmos: [Graphing Calculator](https://www.desmos.com/calculator)
 
 ## 主なカテゴリー
@@ -79,6 +80,17 @@ npm run build
 ```
 
 `npm run build` は日本語版と英語版を両方生成し、壊れた内部リンクも検出します。
+
+## GitHub Pages
+
+`main` ブランチへのpushを契機に、`.github/workflows/deploy-pages.yml` が型検査と日英サイトのビルドを行い、GitHub Pagesへ自動公開します。
+
+```text
+日本語: https://physy.github.io/Desmos-Atlas/
+英語:   https://physy.github.io/Desmos-Atlas/en/
+```
+
+リポジトリの `Settings → Pages → Build and deployment → Source` では `GitHub Actions` を選択します。デプロイ状況はリポジトリの `Actions` タブで確認できます。
 
 ## Issue
 

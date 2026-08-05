@@ -6,8 +6,10 @@ const config: Config = {
   title: 'Desmos Atlas',
   tagline: 'Desmos の知識を、ひとつの地図に。',
   future: {v4: true},
-  url: 'https://desmos-atlas.example.com',
-  baseUrl: '/',
+  url: 'https://physy.github.io',
+  baseUrl: '/Desmos-Atlas/',
+  organizationName: 'physy',
+  projectName: 'Desmos-Atlas',
   onBrokenLinks: 'throw',
   clientModules: [require.resolve('./src/clientModules/katexCopy.ts')],
 

@@ -5,6 +5,7 @@ description: Update variables with actions, clicks, tickers, dt, and index in De
 
 import DesmosEmbed from '@site/src/components/DesmosEmbed';
 import DesmosExpression from '@site/src/components/DesmosExpression';
+import ArticleImage from '@site/src/components/ArticleImage';
 
 # Actions and Tickers
 
@@ -20,7 +21,7 @@ Define $a$, then enter `a->a+1`. Desmos converts the arrow and recognizes the ex
   'a=1', {type: 'action', expression: 'a\\to a+1', color: 'blue'},
 ]} />
 
-<img className="desmos-article-image" src="/img/basic/actions/action.gif" alt="Running an action to increase variable a" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/action.gif" alt="Running an action to increase variable a" loading="lazy" />
 
 ### Multiple updates
 
@@ -47,7 +48,7 @@ Running $C$ runs $A$ and $B$ together. The same no-duplicate-update rule still a
 
 Points, curves, and labels can be made clickable and assigned an action.
 
-<img className="desmos-article-image" src="/img/basic/en/desmosuse/6.png" alt="Making an expression clickable and assigning an action" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/en/desmosuse/6.png" alt="Making an expression clickable and assigning an action" loading="lazy" />
 
 <DesmosEmbed id="yselxxvgos" title="Running actions by clicking the graph" height={540} options={{expressions: true}} />
 
@@ -57,11 +58,11 @@ Click the “increase/decrease by 1” labels to change $a$.
 
 A ticker runs an action at a regular interval. Select “ticker” from the Add menu. If it is not listed, create an action first.
 
-<img className="desmos-article-image" src="/img/basic/en/actions/1.png" alt="Selecting ticker from the Add menu" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/en/actions/1.png" alt="Selecting ticker from the Add menu" loading="lazy" />
 
 Enter an action in the Run field and an interval in milliseconds on the right, then use the metronome button to start it.
 
-<img className="desmos-article-image" src="/img/basic/actions/ticker-settings.png" alt="Setting a ticker action and interval" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/ticker-settings.png" alt="Setting a ticker action and interval" loading="lazy" />
 
 ## Measuring elapsed time with `dt`
 
@@ -71,7 +72,7 @@ Heavy calculations may prevent a ticker from keeping its requested interval. Thi
 
 The special variable $\mathrm{dt}$ contains the elapsed milliseconds since the previous tick. Updating $t\to t+\mathrm{dt}$ reduces dependence on device performance.
 
-<img className="desmos-article-image" src="/img/basic/en/actions/2.png" alt="Using dt in a ticker" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/en/actions/2.png" alt="Using dt in a ticker" loading="lazy" />
 
 <DesmosEmbed id="bi4thnfywv" title="A ticker corrected with dt" height={540} options={{expressions: true}} />
 
@@ -79,7 +80,7 @@ The special variable $\mathrm{dt}$ contains the elapsed milliseconds since the p
 
 When clicking one of several list-generated objects, the special variable $\mathrm{index}$ identifies which item was clicked.
 
-<img className="desmos-article-image" src="/img/basic/actions/action-index.png" alt="Using index with a clickable list" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/action-index.png" alt="Using index with a clickable list" loading="lazy" />
 
 <DesmosEmbed id="zhugwpoq4d" title="Changing an action according to index" height={540} options={{expressions: true}} />
 

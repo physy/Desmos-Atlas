@@ -59,7 +59,7 @@ description: A short description for search results
 Use headings in order without skipping levels. Link to another article with its documentation URL.
 
 ```md
-[Working with lists](/en/docs/basics/lists)
+[Working with lists](/docs/basics/lists)
 ```
 
 ## Formulas and images
@@ -76,10 +76,12 @@ $$
 
 Rendered KaTeX can be copied as LaTeX with a click or keyboard action.
 
-Store images under `static/img/`, reference them through `/img/...`, and always provide useful alternative text.
+Store images under `static/img/` and render them with `ArticleImage`, which preserves the GitHub Pages base path. Always provide useful alternative text.
 
 ```mdx
-<img
+import ArticleImage from '@site/src/components/ArticleImage';
+
+<ArticleImage
   className="desmos-article-image"
   src="/img/basic/example/settings.png"
   alt="The graph settings panel in Desmos"
@@ -87,7 +89,7 @@ Store images under `static/img/`, reference them through `/img/...`, and always 
 />
 ```
 
-Use a language-specific image directory, such as `static/img/basic/en/`, when text inside the image is translated.
+Do not use a plain `<img src="/img/...">`, because it drops the repository subpath on GitHub Pages. Use a language-specific image directory, such as `static/img/basic/en/`, when text inside the image is translated.
 
 ## Embed a saved Desmos project
 
@@ -154,7 +156,7 @@ export const expressions = [
 </DesmosCalculator>
 ```
 
-See [Control graphs with JavaScript](/en/docs/guides/interactive-graphs) for state, hashes, 3D, Geometry, and custom controls.
+See [Control graphs with JavaScript](/docs/guides/interactive-graphs) for state, hashes, 3D, Geometry, and custom controls.
 
 ## Link to another article with a card
 
@@ -165,7 +167,7 @@ import ArticleCard, { ArticleCardGrid } from "@site/src/components/ArticleCard";
 
 <ArticleCardGrid>
   <ArticleCard
-    to="/en/docs/basics/lists"
+    to="/docs/basics/lists"
     label="Basics"
     title="Lists"
     description="Learn how to work with collections of values."
@@ -183,7 +185,7 @@ Reuse this component instead of creating article-specific card markup.
 
 ## Translate an article
 
-Create the English file at the same relative path as its Japanese counterpart. Translate front matter, headings, image alternative text, graph titles, and control labels. Use `/en/docs/...` for English internal links.
+Create the English file at the same relative path as its Japanese counterpart. Translate front matter, headings, image alternative text, graph titles, and control labels. Use `/docs/...` for internal links; Docusaurus adds the active locale and GitHub Pages base path automatically.
 
 If a separate Desmos project has English labels, use its hash in the English article. Check formulas, code, links, and images rather than treating translation as prose-only work.
 

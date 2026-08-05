@@ -5,6 +5,7 @@ description: Desmosのアクション、クリック操作、ティッカー、d
 
 import DesmosEmbed from '@site/src/components/DesmosEmbed';
 import DesmosExpression from '@site/src/components/DesmosExpression';
+import ArticleImage from '@site/src/components/ArticleImage';
 
 # アクションとティッカー
 
@@ -21,7 +22,7 @@ $a$ を定義して `a->a+1` と入力すると、矢印がアクションとし
   {type: 'action', expression: 'a\\to a+1', color: 'blue'},
 ]} />
 
-<img className="desmos-article-image" src="/img/basic/actions/action.gif" alt="アクションを実行して変数aを増やす様子" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/action.gif" alt="アクションを実行して変数aを増やす様子" loading="lazy" />
 
 ### 複数のアクション
 
@@ -49,7 +50,7 @@ $C$ を実行すると $A,B$ を同時に実行できます。ただし、まと
 
 点や関数をクリック可能にし、クリック時の動作へアクションを指定できます。
 
-<img className="desmos-article-image" src="/img/basic/actions/action-click.png" alt="式をクリック可能にしてアクションを設定する画面" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/action-click.png" alt="式をクリック可能にしてアクションを設定する画面" loading="lazy" />
 
 <DesmosEmbed id="ptoibdf7sy" title="グラフのクリックでアクションを実行" height={540} options={{expressions: true}} />
 
@@ -59,11 +60,11 @@ $C$ を実行すると $A,B$ を同時に実行できます。ただし、まと
 
 ティッカーは一定時間ごとに指定したアクションを実行します。追加メニューから「ティッカー」を選択します。
 
-<img className="desmos-article-image" src="/img/basic/actions/ticker-add.png" alt="追加メニューからティッカーを選択" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/ticker-add.png" alt="追加メニューからティッカーを選択" loading="lazy" />
 
 選択肢に出ない場合は、先にアクションを1つ作成します。Run欄へアクション、右側へ実行間隔をミリ秒で入力し、メトロノームボタンで開始します。
 
-<img className="desmos-article-image" src="/img/basic/actions/ticker-settings.png" alt="ティッカーへアクションと実行間隔を設定" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/ticker-settings.png" alt="ティッカーへアクションと実行間隔を設定" loading="lazy" />
 
 ## ティッカーの経過時間 `dt`
 
@@ -73,7 +74,7 @@ $C$ を実行すると $A,B$ を同時に実行できます。ただし、まと
 
 Run欄で使える特殊変数 $\mathrm{dt}$ には、前回からの経過時間が入ります。$t\to t+\mathrm{dt}$ とすれば端末性能に依存しにくくなります。
 
-<img className="desmos-article-image" src="/img/basic/actions/ticker-dt.png" alt="ティッカーでdtを使って経過時間を取得" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/ticker-dt.png" alt="ティッカーでdtを使って経過時間を取得" loading="lazy" />
 
 <DesmosEmbed id="tjvbf6t68m" title="dtで補正したティッカー" height={540} options={{expressions: true}} />
 
@@ -81,7 +82,7 @@ Run欄で使える特殊変数 $\mathrm{dt}$ には、前回からの経過時�
 
 リストで描いた複数の要素をクリックしたとき、特殊変数 $\mathrm{index}$ から何番目がクリックされたか取得できます。
 
-<img className="desmos-article-image" src="/img/basic/actions/action-index.png" alt="クリックされたリスト要素のindexを使う設定" loading="lazy" />
+<ArticleImage className="desmos-article-image" src="/img/basic/actions/action-index.png" alt="クリックされたリスト要素のindexを使う設定" loading="lazy" />
 
 <DesmosEmbed id="cxkn6hyoat" title="indexに応じてアクションを変える例" height={540} options={{expressions: true}} />
 

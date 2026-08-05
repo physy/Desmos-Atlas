@@ -84,10 +84,12 @@ $$
 
 ## 画像を追加する
 
-画像は `static/img/` 以下に置き、記事から `/img/...` で参照します。内容が分かる `alt` を必ず付けてください。
+画像は `static/img/` 以下に置き、GitHub Pagesのサブパスにも対応する `ArticleImage` で参照します。内容が分かる `alt` を必ず付けてください。
 
 ```mdx
-<img
+import ArticleImage from '@site/src/components/ArticleImage';
+
+<ArticleImage
   className="desmos-article-image"
   src="/img/basic/example/settings.png"
   alt="Desmosのグラフ設定画面"
@@ -95,7 +97,7 @@ $$
 />
 ```
 
-翻訳版で画像内の文字も翻訳する場合は、例えば `static/img/basic/en/` のように言語別に保存します。
+通常の `<img src="/img/...">` はGitHub Pages上でリポジトリ名のサブパスを失うため使用しないでください。翻訳版で画像内の文字も翻訳する場合は、例えば `static/img/basic/en/` のように言語別に保存します。
 
 ## 保存済みDesmosグラフを埋め込む
 
