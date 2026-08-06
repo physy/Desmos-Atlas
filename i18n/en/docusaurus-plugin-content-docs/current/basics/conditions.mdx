@@ -3,8 +3,8 @@ title: Restrictions and Conditionals
 description: Domain restrictions, ranges, and piecewise expressions with braces in Desmos.
 ---
 
-import DesmosEmbed from '@site/src/components/DesmosEmbed';
-import DesmosExpression from '@site/src/components/DesmosExpression';
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+import DesmosExpression from "@site/src/components/DesmosExpression";
 
 # Restrictions and Conditionals
 
@@ -14,36 +14,61 @@ Desmos uses braces `{}` for domain and range restrictions as well as simple cond
 
 Append a condition in braces to an expression. Restrictions also work with implicit equations and inequalities.
 
-<DesmosExpression expressions={[
-  {expression: 'y=x\\{x<0\\}', color: 'red'},
-  {expression: 'x=1\\{y\\geq0\\}', color: 'blue'},
-  {expression: 'x>0\\{x^2+y^2>4\\}', type: 'inequality', color: 'green'},
-]} />
+<DesmosExpression
+  expressions={[
+    { expression: "y=x\\{x<0\\}", type: "parametricSolid", color: "red" },
+    { expression: "x=1\\{y\\geq0\\}", type: "parametricSolid", color: "blue" },
+    { expression: "x>0\\{x^2+y^2>4\\}", type: "inequality", color: "green" },
+  ]}
+/>
 
-<DesmosEmbed id="krtdpoeuo4" title="Basic restrictions" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="krtdpoeuo4"
+  title="Basic restrictions"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 ## Multiple conditions
 
 Comma-separated conditions inside one pair of braces behave like “or.” Separate pairs of braces behave like “and.”
 
-<DesmosExpression expressions={[
-  {expression: 'x^2+y^2=1\\{x>0,y>0\\}', color: 'black'},
-  {expression: 'x^2+y^2=4\\{x>0\\}\\{y>0\\}', color: 'purple'},
-]} />
+<DesmosExpression
+  expressions={[
+    { expression: "x^2+y^2=1\\{x>0,y>0\\}", type: "parametricSolid", color: "black" },
+    { expression: "x^2+y^2=4\\{x>0\\}\\{y>0\\}", type: "parametricSolid", color: "purple" },
+  ]}
+/>
 
-<DesmosEmbed id="a8mvzc46rv" title="Comparing multiple restrictions" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="a8mvzc46rv"
+  title="Comparing multiple restrictions"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 ## Conditional expressions
 
 Use `{condition 1: value 1, condition 2: value 2, …}` to switch values according to conditions.
 
-<DesmosExpression expressions={[
-  {expression: 'y=\\{x<0:x+1,0\\leq x<1:1,1\\leq x:x\\}', color: 'red'},
-  {expression: 'a=\\cdots', type: 'pause'},
-  {expression: '(x-1)^2+(y+1)^2=\\{a<0:1,a>0:4\\}', color: 'green'},
-]} />
+<DesmosExpression
+  expressions={[
+    {
+      expression: "y=\\{x<0:x+1,0\\leq x<1:1,1\\leq x:x\\}",
+      type: "parametricSolid",
+      color: "red",
+    },
+    { expression: "a=\\cdots", type: "pause" },
+    { expression: "(x-1)^2+(y+1)^2=\\{a<0:1,a>0:4\\}", type: "parametricSolid", color: "green" },
+  ]}
+/>
 
-<DesmosEmbed id="tykcpjy4v0" title="Conditional expression examples" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="tykcpjy4v0"
+  title="Conditional expression examples"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 Complex logical conditions can often be rewritten mathematically—for example, $a<1$ and $b>2$ can be expressed as $\min(-a+1,b-2)>0$—or built with nested braces.
 

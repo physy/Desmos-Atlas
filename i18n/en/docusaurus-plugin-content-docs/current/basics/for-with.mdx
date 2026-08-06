@@ -16,8 +16,12 @@ Desmos normally uses $t$ for parametric graphs. With `for`, any variable can be 
 
 <DesmosExpression
   expressions={[
-    { expression: "(1,t)", color: "blue" },
-    { expression: "(2,a)\\ \\mathrm{for}\\ 0\\leq a\\leq1", color: "purple" },
+    { expression: "(1,t)", type: "parametricSolid", color: "blue" },
+    {
+      expression: "(2,a)\\ \\mathrm{for}\\ 0\\leq a\\leq1",
+      type: "parametricSolid",
+      color: "purple",
+    },
   ]}
 />
 
@@ -36,7 +40,7 @@ Both bounds must be explicit, as in $1\leq s\leq6$. Use `infinity` for an unboun
   expressions={[
     "y=ax\\ \\mathrm{for}\\ a=[1,2,3]",
     { expression: "(x,y)\\ \\mathrm{for}\\ x=[1,2,3,4],y=[2,3,4]", type: "points", color: "red" },
-    "[2i\\ \\mathrm{for}\\ i=[1,2,4]]=[2,4,8]",
+    "[2i\\ \\mathrm{for}\\ i=[1,2,4]](=[2,4,8])",
   ]}
 />
 

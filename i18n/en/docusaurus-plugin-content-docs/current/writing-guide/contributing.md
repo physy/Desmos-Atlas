@@ -243,7 +243,7 @@ Comment on the Issue if you intend to work on it. A small typo fix may be submit
 
 ## Open a Pull Request
 
-If you do not have write access, fork the repository on GitHub and work in your fork.
+Fork the repository on GitHub and make a new branch.
 
 ```bash
 git clone https://github.com/YOUR-NAME/Desmos-Atlas.git

@@ -3,8 +3,8 @@ title: 範囲指定と条件分岐
 description: 波括弧を使った定義域、値域、条件分岐の書き方。
 ---
 
-import DesmosEmbed from '@site/src/components/DesmosEmbed';
-import DesmosExpression from '@site/src/components/DesmosExpression';
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+import DesmosExpression from "@site/src/components/DesmosExpression";
 
 # 範囲指定と条件分岐
 
@@ -14,36 +14,61 @@ Desmosでは波括弧 `{}` を使って、定義域・値域の制限や条件�
 
 式の最後へ波括弧で条件を書きます。陽関数だけでなく、陰関数や不等式にも利用できます。
 
-<DesmosExpression expressions={[
-  {expression: 'y=x\\{x<0\\}', color: 'red'},
-  {expression: 'x=1\\{y\\geq0\\}', color: 'blue'},
-  {expression: 'x>0\\{x^2+y^2>4\\}', type: 'inequality', color: 'green'},
-]} />
+<DesmosExpression
+  expressions={[
+    { expression: "y=x\\{x<0\\}", type: "parametricSolid", color: "red" },
+    { expression: "x=1\\{y\\geq0\\}", type: "parametricSolid", color: "blue" },
+    { expression: "x>0\\{x^2+y^2>4\\}", type: "inequality", color: "green" },
+  ]}
+/>
 
-<DesmosEmbed id="krtdpoeuo4" title="範囲と条件の基本" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="krtdpoeuo4"
+  title="範囲と条件の基本"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 ## 複数の条件
 
 波括弧内をカンマで区切ると「いずれか」、波括弧を並べると「すべて」の条件として評価されます。
 
-<DesmosExpression expressions={[
-  {expression: 'x^2+y^2=1\\{x>0,y>0\\}', color: 'black'},
-  {expression: 'x^2+y^2=4\\{x>0\\}\\{y>0\\}', color: 'purple'},
-]} />
+<DesmosExpression
+  expressions={[
+    { expression: "x^2+y^2=1\\{x>0,y>0\\}", type: "parametricSolid", color: "black" },
+    { expression: "x^2+y^2=4\\{x>0\\}\\{y>0\\}", type: "parametricSolid", color: "purple" },
+  ]}
+/>
 
-<DesmosEmbed id="a8mvzc46rv" title="複数条件の違い" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="a8mvzc46rv"
+  title="複数条件の違い"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 ## 条件分岐
 
 `{条件1: 式1, 条件2: 式2, …}` の形で、条件ごとに値や式を切り替えられます。
 
-<DesmosExpression expressions={[
-  {expression: 'y=\\{x<0:x+1,0\\leq x<1:1,1\\leq x:x\\}', color: 'red'},
-  {expression: 'a=\\cdots', type: 'pause'},
-  {expression: '(x-1)^2+(y+1)^2=\\{a<0:1,a>0:4\\}', color: 'green'},
-]} />
+<DesmosExpression
+  expressions={[
+    {
+      expression: "y=\\{x<0:x+1,0\\leq x<1:1,1\\leq x:x\\}",
+      type: "parametricSolid",
+      color: "red",
+    },
+    { expression: "a=\\cdots", type: "pause" },
+    { expression: "(x-1)^2+(y+1)^2=\\{a<0:1,a>0:4\\}", type: "parametricSolid", color: "green" },
+  ]}
+/>
 
-<DesmosEmbed id="tykcpjy4v0" title="条件分岐の例" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="tykcpjy4v0"
+  title="条件分岐の例"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 「かつ」は $\min(-a+1,b-2)>0$ のように数式へ置き換えたり、波括弧を入れ子にしたりして表現できます。
 

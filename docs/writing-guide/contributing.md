@@ -262,7 +262,7 @@ Issueの例:
 
 ## Pull Requestを作る
 
-リポジトリへの書き込み権限がない場合は、GitHub上でリポジトリをforkして作業します。
+GitHub上でリポジトリをforkし、ブランチを作成して作業します。
 
 ```bash
 git clone https://github.com/YOUR-NAME/Desmos-Atlas.git

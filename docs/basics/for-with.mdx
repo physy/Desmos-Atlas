@@ -18,8 +18,12 @@ Desmosでは `for` と `with` を使うことで、数式をより柔軟に表�
 
 <DesmosExpression
   expressions={[
-    { expression: "(1,t)", color: "blue" },
-    { expression: "(2,a)\\ \\mathrm{for}\\ 0\\leq a\\leq1", color: "purple" },
+    { expression: "(1,t)", type: "parametricSolid", color: "blue" },
+    {
+      expression: "(2,a)\\ \\mathrm{for}\\ 0\\leq a\\leq1",
+      type: "parametricSolid",
+      color: "purple",
+    },
   ]}
 />
 
@@ -38,7 +42,7 @@ Desmosでは `for` と `with` を使うことで、数式をより柔軟に表�
   expressions={[
     "y=ax\\ \\mathrm{for}\\ a=[1,2,3]",
     { expression: "(x,y)\\ \\mathrm{for}\\ x=[1,2,3,4],y=[2,3,4]", type: "points", color: "red" },
-    "[2i\\ \\mathrm{for}\\ i=[1,2,4]]=[2,4,8]",
+    "[2i\\ \\mathrm{for}\\ i=[1,2,4]](=[2,4,8])",
   ]}
 />
 
