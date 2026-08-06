@@ -3,8 +3,8 @@ title: for and with
 description: Parametric graphs, list processing, substitution, and local variables with for and with.
 ---
 
-import DesmosEmbed from '@site/src/components/DesmosEmbed';
-import DesmosExpression from '@site/src/components/DesmosExpression';
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+import DesmosExpression from "@site/src/components/DesmosExpression";
 
 # `for` and `with`
 
@@ -14,22 +14,31 @@ import DesmosExpression from '@site/src/components/DesmosExpression';
 
 Desmos normally uses $t$ for parametric graphs. With `for`, any variable can be the parameter.
 
-<DesmosExpression expressions={[
-  {expression: '(1,t)', color: 'blue'},
-  {expression: '(2,a)\\ \mathrm{for}\\ 0\\leq a\\leq1', color: 'purple'},
-]} />
+<DesmosExpression
+  expressions={[
+    { expression: "(1,t)", color: "blue" },
+    { expression: "(2,a)\\ \\mathrm{for}\\ 0\\leq a\\leq1", color: "purple" },
+  ]}
+/>
 
-<DesmosEmbed id="kp7u4rqhbn" title="Parametric graphs with for" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="kp7u4rqhbn"
+  title="Parametric graphs with for"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 Both bounds must be explicit, as in $1\leq s\leq6$. Use `infinity` for an unbounded side: $1\leq s<\infty$.
 
 ### Iterating through lists
 
-<DesmosExpression expressions={[
-  'y=ax\\ \mathrm{for}\\ a=[1,2,3]',
-  {expression: '(x,y)\\ \mathrm{for}\\ x=[1,2,3,4],y=[2,3,4]', type: 'points', color: 'red'},
-  '[2i\\ \mathrm{for}\\ i=[1,2,4]]=[2,4,8]',
-]} />
+<DesmosExpression
+  expressions={[
+    "y=ax\\ \\mathrm{for}\\ a=[1,2,3]",
+    { expression: "(x,y)\\ \\mathrm{for}\\ x=[1,2,3,4],y=[2,3,4]", type: "points", color: "red" },
+    "[2i\\ \\mathrm{for}\\ i=[1,2,4]]=[2,4,8]",
+  ]}
+/>
 
 With several lists, `for` uses every combination. See [Lists and Sequences](./lists).
 
@@ -39,14 +48,14 @@ With several lists, `for` uses every combination. See [Lists and Sequences](./li
 
 `with` replaces an existing variable only within one expression.
 
-<DesmosExpression expressions={['a=5', 'y=ax', 'y=ax\\ \mathrm{with}\\ a=10']} />
+<DesmosExpression expressions={["a=5", "y=ax", "y=ax\\ \\mathrm{with}\\ a=10"]} />
 
 The ordinary line is $y=5x$; the expression using `with` draws $y=10x$.
 
 ### Local variables
 
-<DesmosExpression expressions={['y=ax\\ \mathrm{with}\\ a=5']} />
+<DesmosExpression expressions={["y=ax\\ \\mathrm{with}\\ a=5"]} />
 
 This $a$ cannot be referenced from other expressions, which helps prevent naming collisions. Function parameters can provide a similar structure.
 
-<DesmosExpression expressions={['f(x,a)=ax', 'y=f(x,5)']} />
+<DesmosExpression expressions={["f(x,a)=ax", "y=f(x,5)"]} />

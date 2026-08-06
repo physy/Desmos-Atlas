@@ -3,15 +3,20 @@ title: Custom Colors
 description: Customize Desmos colors with rgb, hsv, variables, and lists.
 ---
 
-import DesmosEmbed from '@site/src/components/DesmosEmbed';
-import DesmosExpression from '@site/src/components/DesmosExpression';
-import ArticleImage from '@site/src/components/ArticleImage';
+import DesmosEmbed from "@site/src/components/DesmosEmbed";
+import DesmosExpression from "@site/src/components/DesmosExpression";
+import ArticleImage from "@site/src/components/ArticleImage";
 
 # Custom Colors
 
 Desmos provides several standard colors, but custom colors can also be defined and applied to graphs and labels.
 
-<ArticleImage className="desmos-article-image" src="/img/basic/en/desmosuse/4.png" alt="The Desmos color palette" loading="lazy" />
+<ArticleImage
+  className="desmos-article-image"
+  src="/img/basic/en/desmosuse/4.png"
+  alt="The Desmos color palette"
+  loading="lazy"
+/>
 
 ## Defining a color
 
@@ -19,48 +24,86 @@ Desmos provides several standard colors, but custom colors can also be defined a
 
 Specify the red, green, and blue components from $0$ to $255$.
 
-<ArticleImage className="desmos-article-image" src="/img/basic/color/rgb.png" alt="Creating a color with rgb" loading="lazy" />
+<ArticleImage
+  className="desmos-article-image"
+  src="/img/basic/color/rgb.png"
+  alt="Creating a color with rgb"
+  loading="lazy"
+/>
 
 ### `hsv(Hue, Saturation, Value)`
 
 Hue ranges from $0$ to $360$; saturation and value range from $0$ to $1$.
 
-<ArticleImage className="desmos-article-image" src="/img/basic/color/hsv.png" alt="Creating a color with hsv" loading="lazy" />
+<ArticleImage
+  className="desmos-article-image"
+  src="/img/basic/color/hsv.png"
+  alt="Creating a color with hsv"
+  loading="lazy"
+/>
 
 ## Using a custom color
 
 Assign the color to a variable to add it to the expression color menu. A color that is not stored in a variable does not appear as an option.
 
-<ArticleImage className="desmos-article-image" src="/img/basic/en/desmosuse/5.png" alt="Applying a custom color to a graph" loading="lazy" />
+<ArticleImage
+  className="desmos-article-image"
+  src="/img/basic/en/desmosuse/5.png"
+  alt="Applying a custom color to a graph"
+  loading="lazy"
+/>
 
 ## Colors that depend on variables
 
 The arguments of `rgb()` and `hsv()` may contain variables, so the color can change with a slider. Braces can provide conditional colors.
 
-<DesmosExpression expressions={[
-  'c_1=\\mathrm{rgb}(0,a,255-a)',
-  'c_2=\\{0\\leq b\\leq1:\\mathrm{rgb}(200,0,0),1<b<2:\\mathrm{rgb}(0,200,0),2\\leq b\\leq3:\\mathrm{rgb}(0,0,200)\\}',
-]} />
+<DesmosExpression
+  expressions={[
+    "c_1=\\mathrm{rgb}(0,a,255-a)",
+    "c_2=\\{0\\leq b\\leq1:\\mathrm{rgb}(200,0,0),1<b<2:\\mathrm{rgb}(0,200,0),2\\leq b\\leq3:\\mathrm{rgb}(0,0,200)\\}",
+  ]}
+/>
 
-<DesmosEmbed id="uf6ohepy4g" title="Colors that depend on variables" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="uf6ohepy4g"
+  title="Colors that depend on variables"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 ## Lists of colors
 
 Lists and `for` can generate many colors for list-based graphs.
 
-<DesmosExpression expressions={[
-  'P=(x,y)\\ \mathrm{for}\\ x=[0,1],y=[0,1]',
-  'c=\\mathrm{rgb}(0,200-100P.x,100P.y)',
-  'P+0.3(\\cos t,\\sin t)',
-]} />
+<DesmosExpression
+  expressions={[
+    "P=(x,y)\\ \\mathrm{for}\\ x=[0,1],y=[0,1]",
+    "c=\\mathrm{rgb}(0,200-100P.x,100P.y)",
+    "P+0.3(\\cos t,\\sin t)",
+  ]}
+/>
 
-<DesmosEmbed id="9hcq3xrddz" title="Using a list of colors" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="9hcq3xrddz"
+  title="Using a list of colors"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
 
 A larger color list can reproduce a gradient.
 
-<DesmosExpression expressions={[
-  'D=[0,...,255]', 'c=\\mathrm{rgb}(0,255-D,D)', 'd=0.02',
-  'y=dD\\{0\\leq x\\leq255d\\}',
-]} />
+<DesmosExpression
+  expressions={[
+    "D=[0,...,255]",
+    "c=\\mathrm{rgb}(0,255-D,D)",
+    "d=0.02",
+    "y=dD\\{0\\leq x\\leq255d\\}",
+  ]}
+/>
 
-<DesmosEmbed id="hdo234k1a3" title="A gradient made with color lists" height={540} options={{expressions: true, settingsMenu: false, trace: true}} />
+<DesmosEmbed
+  id="hdo234k1a3"
+  title="A gradient made with color lists"
+  height={540}
+  options={{ expressions: true, settingsMenu: false, trace: true }}
+/>
