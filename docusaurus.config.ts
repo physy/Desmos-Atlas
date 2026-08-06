@@ -5,6 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Desmos Atlas",
   tagline: "Desmos の知識を、ひとつの地図に。",
+  favicon: "img/favicon.svg",
   future: { v4: true },
   url: "https://physy.github.io",
   baseUrl: "/Desmos-Atlas/",
@@ -12,6 +13,15 @@ const config: Config = {
   projectName: "Desmos-Atlas",
   onBrokenLinks: "throw",
   clientModules: [require.resolve("./src/clientModules/katexCopy.ts")],
+  headTags: [
+    {
+      tagName: "meta",
+      attributes: {
+        name: "google-site-verification",
+        content: "jyw0xpOtwV0hYfriobkSqpiuZui66GF-xS4V2GZjJe0",
+      },
+    },
+  ],
 
   i18n: {
     defaultLocale: "ja",
@@ -34,6 +44,10 @@ const config: Config = {
         },
         blog: false,
         theme: { customCss: "./src/css/custom.css" },
+        gtag: {
+          trackingID: "G-YJVHFSDJMH",
+          anonymizeIP: true,
+        },
       } satisfies Preset.Options,
     ],
   ],
