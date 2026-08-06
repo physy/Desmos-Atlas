@@ -1,0 +1,61 @@
+---
+title: Desmosでギリシャ文字を入力する
+description: Desmosで標準入力できないギリシャ文字を利用する3つの方法。
+---
+
+# Desmosでギリシャ文字を入力する
+
+Desmosでは、$\alpha,\beta,\theta,\phi,\pi,\tau$などのギリシャ文字を入力できます。`alpha`や`beta`のように名前を入力するだけです。
+
+一方、$\lambda$や$\gamma$など、通常の入力では利用できない文字もあります。ここでは3つの入力方法を紹介します。
+
+## 1. LaTeXをコピー＆ペーストする
+
+Desmosの数式は$\LaTeX$形式で処理されています。LaTeXでは、ギリシャ文字を`\lambda`や`\gamma`のようにバックスラッシュ付きのコマンドで表します。
+
+Desmosの数式欄にバックスラッシュを直接入力するとエスケープされるため、説明文へLaTeXコマンドを入力し、それを数式欄へコピー＆ペーストします。
+
+![説明文に入力したlambdaを数式へコピーする例](/img/greece/lambda.png)
+
+スマートフォンでは数式欄へ正しくペーストできない場合があります。その場合は、パソコンなど画面の大きな端末を利用してください。
+
+:::info 補足
+DesmosはWYSIWYG数式エディターのMathQuillを使用しています。通常の`input`要素ではなく`div`要素で入力欄を構成しているため、スマートフォンの入力補助が正しく動作しない場合があります。
+:::
+
+## 2. DesModderを使う
+
+[DesModder](https://www.desmodder.com/)は、Desmosへさまざまな機能を追加するブラウザー拡張です。
+
+- [Chromeウェブストア](https://chromewebstore.google.com/detail/desmodder-for-desmos/eclmfdfimjhkmjglgdldedokjaemjfjp)
+- [Firefox Add-ons](https://addons.mozilla.org/ja/firefox/addon/desmodder-for-desmos/)
+
+インストールして有効化すると、多くのギリシャ文字を名前から直接入力できます。
+
+名前が別の文字や関数と衝突する場合には注意が必要です。例えば`epsilon`では、入力途中の`psi`が先に$\psi$へ変換されることがあります。この場合は`eps ilo`のように一時的に空白を入れ、残りを入力してから空白を削除します。
+
+`varepsilon`や`varphi`は、先頭の`var`が分散を求める$\mathrm{var}$関数として認識される場合があります。うまく入力できないときはLaTeX形式をコピーしてください。
+
+## 3. コンソールから操作する
+
+この方法はJavaScriptの基本を理解している人向けです。Chromeでは、macOSなら`Command`+`Option`+`J`、Windowsなら`Ctrl`+`Shift`+`J`で開発者コンソールを開けます。
+
+![Desmosで開発者コンソールを開いた画面](/img/greece/console.png)
+
+Desmosのグラフ計算機は`Calc`オブジェクトから操作できます。
+
+![コンソールでCalcオブジェクトを確認する画面](/img/greece/console2.png)
+
+式一覧を取得するには次のコードを実行します。
+
+```javascript
+Calc.getExpressions();
+```
+
+$y=\lambda x$を追加する場合は次のようにします。
+
+```javascript
+Calc.setExpression({latex: "y=\\lambda x"});
+```
+
+JavaScript文字列内のバックスラッシュは`\\`とエスケープする必要があります。詳しくは[Desmos APIドキュメント](https://www.desmos.com/api/v1.11/docs/index.html)を参照してください。

@@ -27,10 +27,11 @@ i18n/en/docusaurus-plugin-content-docs/current/basics/functions.mdx
 
 ## Categories
 
-| Category      | Content                                   | Example location                                 |
-| ------------- | ----------------------------------------- | ------------------------------------------------ |
-| Basics        | Desmos features, notation, and operations | `docs/basics/`                                   |
-| Writing Guide | MDX, components, and authoring            | `docs/guides/`                                   |
+| Category      | Content                                   | Example location      |
+| ------------- | ----------------------------------------- | --------------------- |
+| Basics        | Desmos features, notation, and operations | `docs/basics/`        |
+| Advanced      | Advanced techniques                       | `docs/advanced/`      |
+| Writing Guide | MDX, components, and authoring            | `docs/guides/`        |
 | Graph Gallery | Finished graphs and project explanations  | `docs/graph-gallery/` |
 
 The sidebar order is defined in `sidebars.ts`. Add a new document ID to the appropriate category.
@@ -79,14 +80,14 @@ Rendered KaTeX can be copied as LaTeX with a click or keyboard action.
 Store images under `static/img/` and render them with `ArticleImage`, which preserves the GitHub Pages base path. Always provide useful alternative text.
 
 ```jsx
-import ArticleImage from '@site/src/components/ArticleImage';
+import ArticleImage from "@site/src/components/ArticleImage";
 
 <ArticleImage
   className="desmos-article-image"
   src="/img/basic/example/settings.png"
   alt="The graph settings panel in Desmos"
   loading="lazy"
-/>
+/>;
 ```
 
 Do not use a plain `<img src="/img/...">`, because it drops the repository subpath on GitHub Pages. Use a language-specific image directory, such as `static/img/basic/en/`, when text inside the image is translated.
@@ -98,7 +99,7 @@ Pass the hash at the end of a Desmos share URL to `DesmosEmbed`. The component f
 ```jsx
 import DesmosEmbed from "@site/src/components/DesmosEmbed";
 
-<DesmosEmbed id="xfsfswckqy" title="A quadratic graph" height={520} />
+<DesmosEmbed id="xfsfswckqy" title="A quadratic graph" height={520} />;
 ```
 
 For 3D and Geometry projects, specify the calculator type.
@@ -123,7 +124,7 @@ import DesmosExpression from "@site/src/components/DesmosExpression";
     { expression: "x^2+y^2\\leq 9", type: "inequality", color: "blue" },
     { expression: "(1,2)", type: "point", color: "green" },
   ]}
-/>
+/>;
 ```
 
 Colors may be `red`, `blue`, `green`, `orange`, `purple`, `black`, or a hex value. Consult the component types for the available display styles.
@@ -153,7 +154,7 @@ export const expressions = [
       Set a to 2
     </DesmosButton>
   </DesmosControls>
-</DesmosCalculator>
+</DesmosCalculator>;
 ```
 
 See [Control graphs with JavaScript](/docs/writing-guide/interactive-graphs) for state, hashes, 3D, Geometry, and custom controls.
@@ -178,7 +179,7 @@ import ArticleCard, { ArticleCardGrid } from "@site/src/components/ArticleCard";
     title="Graphing Calculator"
     description="Open Desmos in a new tab."
   />
-</ArticleCardGrid>
+</ArticleCardGrid>;
 ```
 
 Reuse this component instead of creating article-specific card markup.
@@ -289,16 +290,3 @@ Closes #123
 If a review requests changes, commit and push them to the same branch. The existing Pull Request updates automatically.
 
 GitHub documentation: [Creating an Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue), [Creating a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request), and [Creating a Pull Request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
-
-## Checklist
-
-- [ ] The title and description accurately summarize the article
-- [ ] Heading levels are ordered logically
-- [ ] Formulas and code were tested
-- [ ] Images have meaningful alternative text
-- [ ] Internal and external links work
-- [ ] Desmos projects load and remain interactive
-- [ ] Japanese and English coverage was considered
-- [ ] New documents were added to `sidebars.ts`
-- [ ] `npm run typecheck` and `npm run build` pass
-- [ ] Unrelated files were not changed

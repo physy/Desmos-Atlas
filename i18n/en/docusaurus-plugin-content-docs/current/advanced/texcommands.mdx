@@ -1,0 +1,238 @@
+---
+title: TeX Command Reference
+description: TeX and LaTeX commands available in Desmos labels and expressions.
+---
+
+# TeX Command Reference
+
+This page lists $\TeX$ ($\LaTeX$) commands recognized in Desmos labels and expressions. Most standard commands work, although some are not fully supported inside expressions.
+
+To use TeX in a label, enclose the TeX section in backticks. See [Points, Labels, and Vectors](../basics/points-vectors.mdx) for details.
+
+## Greek Letters
+
+These commands work in expressions and can be used as variables.
+
+| Output        | Command                           | Notes |
+| ------------- | --------------------------------- | ----- |
+| $\alpha$      | `\alpha \α`                       |       |
+| $\beta$       | `\beta \β`                        |       |
+| $\gamma$      | `\gamma \γ`                       |       |
+| $\Gamma$      | `\Gamma \Γ`                       |       |
+| $\digamma$    | `\digamma \Gammad \gammad \Ϝ`     |       |
+| $\delta$      | `\delta \δ`                       |       |
+| $\Delta$      | `\Delta \Δ`                       |       |
+| $\epsilon$    | `\epsilon \ϵ`                     |       |
+| $\varepsilon$ | `\varepsilon \epsiv \ε`           |       |
+| $\zeta$       | `\zeta \ζ`                        |       |
+| $\eta$        | `\eta \η`                         |       |
+| $\theta$      | `\theta \θ`                       |       |
+| $\Theta$      | `\Theta \Θ`                       |       |
+| $\vartheta$   | `\vartheta \thetasym \thetav \ϑ`  |       |
+| $\iota$       | `\iota \ι`                        |       |
+| $\kappa$      | `\kappa \κ`                       |       |
+| $\varkappa$   | `\varkappa \kappav \ϰ`            |       |
+| $\lambda$     | `\lambda \λ`                      |       |
+| $\Lambda$     | `\Lambda \Λ`                      |       |
+| $\mu$         | `\mu \μ`                          |       |
+| $\nu$         | `\nu \ν`                          |       |
+| $\xi$         | `\xi \ξ`                          |       |
+| $\Xi$         | `\Xi \Ξ`                          |       |
+| $\pi$         | `\pi \π`                          |       |
+| $\Pi$         | `\Pi \Π`                          |       |
+| $\varpi$      | `\varpi \piv \ϖ`                  |       |
+| $\rho$        | `\rho \ρ`                         |       |
+| $\varrho$     | `\varrho \rhov \ϱ`                |       |
+| $\sigma$      | `\sigma \σ`                       |       |
+| $\Sigma$      | `\Sigma \Σ`                       |       |
+| $\varsigma$   | `\varsigma \sigmav \sigmaf \ς`    |       |
+| $\tau$        | `\tau \τ`                         |       |
+| $\upsilon$    | `\upsilon \upsi \υ`               |       |
+| $\Upsilon$    | `\Upsilon \Upsih \upsih \Upsi \Υ` |       |
+| $\phi$        | `\phi \φ`                         |       |
+| $\Phi$        | `\Phi \Φ`                         |       |
+| $\varphi$     | `\varphi \phiv \ϕ`                |       |
+| $\chi$        | `\chi \χ`                         |       |
+| $\psi$        | `\psi \ψ`                         |       |
+| $\Psi$        | `\Psi \Ψ`                         |       |
+| $\omega$      | `\omega \ω`                       |       |
+| $\Omega$      | `\Omega \Ω`                       |       |
+
+## Math Functions
+
+Some recognized commands are not fully supported by Desmos and may render incorrectly.
+
+| Output                  | Command                                                     | Notes                              |
+| ----------------------- | ----------------------------------------------------------- | ---------------------------------- |
+| $\arg$                  | `\arg`                                                      |                                    |
+| $deg$                   | `\deg`                                                      |                                    |
+| $\det$                  | `\det`                                                      |                                    |
+| $dim$                   | `\dim`                                                      |                                    |
+| $\exp$                  | `\exp`                                                      |                                    |
+| $\gcd$                  | `\gcd`                                                      |                                    |
+| $hom$                   | `\hom`                                                      |                                    |
+| $inf$                   | `\inf`                                                      |                                    |
+| $ker$                   | `\ker`                                                      |                                    |
+| $lg$                    | `\lg`                                                       |                                    |
+| $lim$                   | `\lim`                                                      |                                    |
+| $\ln$                   | `\ln`                                                       |                                    |
+| $\log$                  | `\log`                                                      |                                    |
+| $\max$                  | `\max`                                                      |                                    |
+| $\min$                  | `\min`                                                      |                                    |
+| $sup$                   | `\sup`                                                      |                                    |
+| $limsup$                | `\limsup`                                                   |                                    |
+| $li\min f$              | `\liminf`                                                   |                                    |
+| $injlim$                | `\injlim`                                                   |                                    |
+| $projlim$               | `\projlim`                                                  |                                    |
+| $Pr$                    | `\Pr`                                                       |                                    |
+| $\mathrm{arcsinh}$      | `\arcsinh`                                                  |                                    |
+| $\mathrm{arsinh}$       | `\arsinh`                                                   |                                    |
+| $\sinh$                 | `\sinh`                                                     |                                    |
+| $\arcsin$               | `\arcsin`                                                   |                                    |
+| $\sin$                  | `\sin`                                                      |                                    |
+| $\mathrm{arccosh}$      | `\arccosh`                                                  |                                    |
+| $\mathrm{arcosh}$       | `\arcosh`                                                   |                                    |
+| $\cosh$                 | `\cosh`                                                     |                                    |
+| $\arccos$               | `\arccos`                                                   |                                    |
+| $\cos$                  | `\cos`                                                      |                                    |
+| $\mathrm{arctanh}$      | `\arctanh`                                                  |                                    |
+| $\mathrm{artanh}$       | `\artanh`                                                   |                                    |
+| $\tanh$                 | `\tanh`                                                     |                                    |
+| $\arctan$               | `\arctan`                                                   |                                    |
+| $\tan$                  | `\tan`                                                      |                                    |
+| $\mathrm{arcsech}$      | `\arcsech`                                                  |                                    |
+| $\mathrm{arsech}$       | `\arsech`                                                   |                                    |
+| $\mathrm{sech}$         | `\sech`                                                     |                                    |
+| $\mathrm{arcsec}$       | `\arcsec`                                                   |                                    |
+| $\mathrm{sec}$          | `\sec`                                                      |                                    |
+| $\mathrm{arccos}\,ech$  | `\arccosech`                                                |                                    |
+| $ar\,\mathrm{cos}\,ech$ | `\arcosech`                                                 |                                    |
+| $\mathrm{cos}\,ech$     | `\cosech`                                                   |                                    |
+| $\mathrm{arccos}\,ec$   | `\arccosec`                                                 |                                    |
+| $\mathrm{cos}\,ec$      | `\cosec`                                                    |                                    |
+| $\mathrm{arccsch}$      | `\arccsch`                                                  |                                    |
+| $\mathrm{arcsch}$       | `\arcsch`                                                   |                                    |
+| $\mathrm{csch}$         | `\csch`                                                     |                                    |
+| $\mathrm{arccsc}$       | `\arccsc`                                                   |                                    |
+| $\mathrm{csc}$          | `\csc`                                                      |                                    |
+| $\mathrm{arccot}\,anh$  | `\arccotanh`                                                |                                    |
+| $ar\,\mathrm{cot}\,anh$ | `\arcotanh`                                                 |                                    |
+| $\mathrm{cot}\,anh$     | `\cotanh`                                                   |                                    |
+| $\mathrm{arccot}\,an$   | `\arccotan`                                                 |                                    |
+| $\mathrm{cot}\,an$      | `\cotan`                                                    |                                    |
+| $\mathrm{arccoth}$      | `\arccoth`                                                  |                                    |
+| $\mathrm{arcoth}$       | `\arcoth`                                                   |                                    |
+| $\mathrm{coth}$         | `\coth`                                                     |                                    |
+| $\mathrm{arccot}$       | `\arccot`                                                   |                                    |
+| $\mathrm{cot}$          | `\cot`                                                      |                                    |
+| $arcctgh$               | `\arcctgh`                                                  |                                    |
+| $arctgh$                | `\arctgh`                                                   |                                    |
+| $ctgh$                  | `\ctgh`                                                     |                                    |
+| $arcctg$                | `\arcctg`                                                   |                                    |
+| $ctg$                   | `\ctg`                                                      |                                    |
+| $\mathrm{gcf}$          | `\gcf`                                                      |                                    |
+| $hcf$                   | `\hcf`                                                      |                                    |
+| $\mathrm{lcm}$          | `\lcm`                                                      |                                    |
+| $proj$                  | `\proj`                                                     |                                    |
+| $span$                  | `\span`                                                     |                                    |
+| $f$                     | `\operatorname{f}`                                          | Used with Desmos functions         |
+| $f$                     | `\f`                                                        |                                    |
+| $\displaystyle\sum$     | `\sum \summation \∑`                                        |                                    |
+| $\displaystyle\prod$    | `\prod \product \∏`                                         |                                    |
+| $\displaystyle\coprod$  | `\coprod \coproduct`                                        |                                    |
+| $\displaystyle\int$     | `\int \integral \∫`                                         |                                    |
+| $\dfrac12$              | `\\frac{1}{2} \\fraction{1}{2} \\dfrac{1}{2} \\cfrac{1}{2}` |                                    |
+| $a\over b$              | `\over{a}{b}`                                               |                                    |
+| $\mathrm{ans}$          | `\ans`                                                      | Supported in other tools of Desmos |
+| $\%\ \mathrm{of}$       | `\percent \percentof`                                       |                                    |
+| $\sqrt2$                | `\sqrt{2}`                                                  |                                    |
+| $\sqrt[3]{2}$           | `\sqrt[3]{2} \nthroot{3}{2} \cbrt{3}{2}`                    |                                    |
+
+## Other Symbols
+
+| Output                   | Command                                      | Notes                                                                                                                                  |
+| ------------------------ | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| $\forall$                | `\forall \∀`                                 |                                                                                                                                        |
+| ${}^0$                   | `\⁰`                                         | Applies to 1 through 9                                                                                                                 |
+| $\dfrac14$               | `\¼`                                         |                                                                                                                                        |
+| $\dfrac12$               | `\½`                                         |                                                                                                                                        |
+| $\dfrac34$               | `\¾`                                         |                                                                                                                                        |
+| $\sqrt{\quad}$           | `\√`                                         |                                                                                                                                        |
+| $+$                      | `\+`                                         |                                                                                                                                        |
+| $-$                      | `\- \– \— \−`                                |                                                                                                                                        |
+| $\pm$                    | `\pm \plusmn \plusminus \±`                  |                                                                                                                                        |
+| $\mp$                    | `\mp \mnplus \minusplus`                     |                                                                                                                                        |
+| $\cdot$                  | `\cdot \sdot`                                |                                                                                                                                        |
+| $\to$                    | `\to \→`                                     |                                                                                                                                        |
+| $\lt$                    | `\lt \<`                                     |                                                                                                                                        |
+| $\gt$                    | `\gt \>`                                     |                                                                                                                                        |
+| $\leq$                   | `\leq \le \≤`                                |                                                                                                                                        |
+| $\geq$                   | `\geq \ge \≥`                                |                                                                                                                                        |
+| $\infty$                 | `\infty \infinity \infin \∞`                 |                                                                                                                                        |
+| $\neq$                   | `\neq \ne \≠`                                |                                                                                                                                        |
+| $=$                      | `\=`                                         |                                                                                                                                        |
+| $\times$                 | `\times \cross \×`                           |                                                                                                                                        |
+| $\div$                   | `\div \divide \divides \÷`                   |                                                                                                                                        |
+| $\sim$                   | `\sim \~`                                    |                                                                                                                                        |
+| $\approx$                | `\approx \≈`                                 |                                                                                                                                        |
+| $\bigcirc$               | `\bigcirc \◯`                                |                                                                                                                                        |
+| $\angle$                 | `\angle \ang \∠`                             |                                                                                                                                        |
+| $\degree$                | `\degree \°`                                 |                                                                                                                                        |
+| $\triangle$              | `\triangle \△`                               |                                                                                                                                        |
+| $\cong$                  | `\cong \≅`                                   |                                                                                                                                        |
+| $\measuredangle$         | `\measuredangle \∡`                          |                                                                                                                                        |
+| ▱                        | `\parallelogram \▱`                          |                                                                                                                                        |
+| $\ncong$                 | `\ncong \≇`                                  |                                                                                                                                        |
+| $\nsim$                  | `\nsim \≁`                                   |                                                                                                                                        |
+| $\mathrm{a}$             | `\mathrm{a}`                                 |                                                                                                                                        |
+| $\mathit a$              | `\mathit{a}`                                 |                                                                                                                                        |
+| $\mathbf a$              | `\mathbf{a}`                                 |                                                                                                                                        |
+| $\mathsf a$              | `\mathsf{a}`                                 |                                                                                                                                        |
+| $\mathtt a$              | `\mathtt{a}`                                 |                                                                                                                                        |
+| $\hat{a}$                | `\hat{a}`                                    |                                                                                                                                        |
+| $\vec a$                 | `\vec{a}`                                    |                                                                                                                                        |
+| $\tilde a$               | `\tilde{a}`                                  |                                                                                                                                        |
+| $\underline a$           | `\underline{a}`                              |                                                                                                                                        |
+| $\bar a$                 | `\bar{a} \overline{a}`                       |                                                                                                                                        |
+| $\overrightarrow a$      | `\overrightarrow{a}`                         |                                                                                                                                        |
+| $\overleftarrow a$       | `\overleftarrow{a}`                          |                                                                                                                                        |
+| $\overleftrightarrow a$  | `\overleftrightarrow{a}`                     |                                                                                                                                        |
+| $\overgroup{AB}$         | `\overarc{AB}`                               |                                                                                                                                        |
+| $\dot a$                 | `\dot{a}`                                    |                                                                                                                                        |
+| $\textcolor{red}{a}$     | `\textcolor{red}{a}`                         | RGB values like #ff0000 are also supported.<br /> Some special characters cannot be used, but the CSS color property can be specified. |
+| ${}_a$                   | `\_{a} \subscript{a}`                        |                                                                                                                                        |
+| ${}^a$                   | `\^{a} \supscript{a} \superscript{a}`        |                                                                                                                                        |
+| $\space$                 | `\space \(space)`                            | Make some space                                                                                                                        |
+| $.$                      | `\.`                                         |                                                                                                                                        |
+| $'$                      | `\prime \'`                                  |                                                                                                                                        |
+| $''$                     | `\dprime \″`                                 |                                                                                                                                        |
+| $\backslash$             | `\backslash`                                 |                                                                                                                                        |
+| $\text{\textdollar}$     | `\$`                                         |                                                                                                                                        |
+| $\square$                | `\square \□`                                 |                                                                                                                                        |
+| $\mid$                   | `\mid`                                       |                                                                                                                                        |
+| $@$                      | `\@`                                         |                                                                                                                                        |
+| $\&$                     | `\&`                                         |                                                                                                                                        |
+| $\%$                     | `\%`                                         |                                                                                                                                        |
+| $\parallel$              | `\parallel \∥`                               |                                                                                                                                        |
+| $\nparallel$             | `\nparallel \∦`                              |                                                                                                                                        |
+| $\perp$                  | `\perp \⟂`                                   |                                                                                                                                        |
+| $\langle a \rangle$      | `\langle{a} \rangle{a}`                      |                                                                                                                                        |
+| $\lVert a\rVert$         | `\lVert{a} \rVert{a}`                        |                                                                                                                                        |
+| $\left(\dfrac12 \right)$ | `\left( \frac12 \right)`                     |                                                                                                                                        |
+| $\dbinom ab$             | `\binom{a}{b} \binomial{a}{b} \choose{a}{b}` |                                                                                                                                        |
+
+:::info[Notes on left and right]
+Use these commands as a pair to size delimiters around their contents. Add the opening delimiter after left and the closing delimiter after right.
+:::
+
+## Special Commands
+
+These appear to be intended for internal processing and are not recommended for ordinary graphs or articles.
+
+| Output | Command                               | Notes                                                                                                                                                        |
+| ------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|        | `\tildeNbsp`                          | It seems that a non-breaking space &nbsp; is inserted. Is it recognized as \sim?                                                                             |
+|        | `\class{class name}{a}`               | You can wrap content in a span tag with any class name.<br /> Nesting is also possible, so with the right class names, you can technically apply CSS styles. |
+|        | `\token{number}`                      |                                                                                                                                                              |
+| $a$    | `\editable{a} \MathQuillMathField{a}` |                                                                                                                                                              |
+|        | `\embed{}`                            |                                                                                                                                                              |

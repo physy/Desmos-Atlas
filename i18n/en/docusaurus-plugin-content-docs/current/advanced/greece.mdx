@@ -1,0 +1,61 @@
+---
+title: Entering Greek Letters in Desmos
+description: Three ways to use Greek letters that cannot be entered normally in Desmos.
+---
+
+# Entering Greek Letters in Desmos
+
+Desmos lets you enter Greek letters such as $\alpha,\beta,\theta,\phi,\pi,\tau$ by typing names like `alpha` or `beta`.
+
+Other letters, including $\lambda$ and $\gamma$, may require a different method. This page explains three options.
+
+## 1. Copy and paste LaTeX
+
+Desmos processes expressions as $\LaTeX$. In LaTeX, Greek letters are written as commands such as `\lambda` and `\gamma`.
+
+Typing a backslash directly in a Desmos expression causes it to be escaped. Instead, enter the LaTeX command in a note and copy it into the expression.
+
+![Copying lambda from a note into an expression](/img/greece/lambda.png)
+
+Pasting into an expression may not work reliably on smartphones. If that happens, use a computer or another device with a larger screen.
+
+:::info Note
+Desmos uses the MathQuill WYSIWYG math editor. Its input area is built from `div` elements rather than a regular `input`, so native input assistance on smartphones may not behave as expected.
+:::
+
+## 2. Use DesModder
+
+[DesModder](https://www.desmodder.com/) is a browser extension that adds features to Desmos.
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/desmodder-for-desmos/eclmfdfimjhkmjglgdldedokjaemjfjp)
+- [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/desmodder-for-desmos/)
+
+After installing and enabling it, you can type the names of many Greek letters directly.
+
+Some names conflict with other letters or functions. For example, while typing `epsilon`, the `psi` portion may be converted to $\psi$ too early. Temporarily type `eps ilo`, complete the word, and then remove the space.
+
+Names such as `varepsilon` and `varphi` may conflict with Desmos’s $\mathrm{var}$ function. When direct input fails, copy the LaTeX form instead.
+
+## 3. Use the browser console
+
+This method is intended for readers familiar with JavaScript. In Chrome, open the developer console with `Command`+`Option`+`J` on macOS or `Ctrl`+`Shift`+`J` on Windows.
+
+![The developer console open beside Desmos](/img/greece/console.png)
+
+The calculator can be controlled through the `Calc` object.
+
+![Inspecting the Calc object in the console](/img/greece/console2.png)
+
+Retrieve all expressions with:
+
+```javascript
+Calc.getExpressions();
+```
+
+Add $y=\lambda x$ with:
+
+```javascript
+Calc.setExpression({latex: "y=\\lambda x"});
+```
+
+A backslash in a JavaScript string must be escaped as `\\`. See the [Desmos API documentation](https://www.desmos.com/api/v1.11/docs/index.html) for other available methods.

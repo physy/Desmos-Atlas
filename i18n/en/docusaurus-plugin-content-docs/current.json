@@ -7,6 +7,10 @@
     "message": "Basics",
     "description": "The label for category '基礎' in sidebar 'wikiSidebar'"
   },
+  "sidebar.wikiSidebar.category.発展": {
+    "message": "Advanced",
+    "description": "The label for category '発展' in sidebar 'wikiSidebar'"
+  },
   "sidebar.wikiSidebar.category.記事作成ガイド": {
     "message": "Writing Guide",
     "description": "The label for category '記事作成ガイド' in sidebar 'wikiSidebar'"

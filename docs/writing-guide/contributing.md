@@ -27,12 +27,13 @@ i18n/en/docusaurus-plugin-content-docs/current/basics/functions.mdx
 
 ## カテゴリー
 
-記事は次の3カテゴリーに分類します。
+記事は次のカテゴリーに分類します。
 
-| カテゴリー       | 主な内容                      | 保存場所の例                                         |
-| ---------------- | ----------------------------- | ---------------------------------------------------- |
-| 基礎             | Desmosの機能、記法、操作方法  | `docs/basics/`                                       |
-| 記事作成ガイド   | MDX、コンポーネント、執筆方法 | `docs/guides/`                                       |
+| カテゴリー       | 主な内容                      | 保存場所の例          |
+| ---------------- | ----------------------------- | --------------------- |
+| 基礎             | Desmosの機能、記法、操作方法  | `docs/basics/`        |
+| 発展             | 発展的な事項                  | `docs/advanced/`      |
+| 記事作成ガイド   | MDX、コンポーネント、執筆方法 | `docs/guides/`        |
 | グラフギャラリー | 完成したグラフ、作品の解説    | `docs/graph-gallery/` |
 
 サイドバーの並び順は `sidebars.ts` で管理します。新しい記事を追加したら、対応するカテゴリーの `items` にドキュメントIDを追加してください。
@@ -87,14 +88,14 @@ $$
 画像は `static/img/` 以下に置き、GitHub Pagesのサブパスにも対応する `ArticleImage` で参照します。内容が分かる `alt` を必ず付けてください。
 
 ```jsx
-import ArticleImage from '@site/src/components/ArticleImage';
+import ArticleImage from "@site/src/components/ArticleImage";
 
 <ArticleImage
   className="desmos-article-image"
   src="/img/basic/example/settings.png"
   alt="Desmosのグラフ設定画面"
   loading="lazy"
-/>
+/>;
 ```
 
 通常の `<img src="/img/...">` はGitHub Pages上でリポジトリ名のサブパスを失うため使用しないでください。翻訳版で画像内の文字も翻訳する場合は、例えば `static/img/basic/en/` のように言語別に保存します。
@@ -106,7 +107,7 @@ Desmosの共有URLの末尾にあるハッシュを `id` に渡します。ifram
 ```jsx
 import DesmosEmbed from "@site/src/components/DesmosEmbed";
 
-<DesmosEmbed id="xfsfswckqy" title="二次関数のグラフ" height={520} />
+<DesmosEmbed id="xfsfswckqy" title="二次関数のグラフ" height={520} />;
 ```
 
 通常のグラフは `kind` を省略できます。3DまたはGeometryの場合は種類を指定します。
@@ -131,7 +132,7 @@ import DesmosExpression from "@site/src/components/DesmosExpression";
     { expression: "x^2+y^2\\leq 9", type: "inequality", color: "blue" },
     { expression: "(1,2)", type: "point", color: "green" },
   ]}
-/>
+/>;
 ```
 
 色には `red`、`blue`、`green`、`orange`、`purple`、`black` または16進カラーを指定できます。利用可能な表示形式はコンポーネントの型定義を確認してください。
@@ -161,7 +162,7 @@ export const expressions = [
       aを2にする
     </DesmosButton>
   </DesmosControls>
-</DesmosCalculator>
+</DesmosCalculator>;
 ```
 
 詳しい使い方は[JavaScriptでグラフを操作する](/docs/writing-guide/interactive-graphs)を参照してください。
@@ -186,7 +187,7 @@ import ArticleCard, { ArticleCardGrid } from "@site/src/components/ArticleCard";
     title="グラフ計算機"
     description="Desmosを別タブで開きます。"
   />
-</ArticleCardGrid>
+</ArticleCardGrid>;
 ```
 
 リンク先、タイトル、説明だけが異なるカードを記事ごとに作らず、この共通コンポーネントを再利用してください。
@@ -305,19 +306,6 @@ Pull Requestには、変更の目的、変更した記事、確認したコマ�
 Closes #123
 ```
 
-レビューで修正を求められた場合は、同じブランチに追加commitしてpushします。Pull Requestは自動的に更新されるため、作り直す必要はありません。
+レビューで修正が必要になった場合は、同じブランチに追加commitしてpushします。Pull Requestは自動的に更新されるため、作り直す必要はありません。
 
 GitHub公式ドキュメント: [Issueの作成](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue)、[Pull Requestの作成](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)、[forkからのPull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
-
-## 提出前チェックリスト
-
-- [ ] タイトルと説明が内容を表している
-- [ ] 見出し構造が自然である
-- [ ] 数式とコードを実際に確認した
-- [ ] 画像に意味のある代替テキストがある
-- [ ] 内部リンクと外部リンクが開く
-- [ ] Desmosグラフが読み込まれ、操作できる
-- [ ] 日本語版と英語版の対応を確認した
-- [ ] `sidebars.ts` に必要な記事を追加した
-- [ ] `npm run typecheck` と `npm run build` が成功する
-- [ ] 関係のないファイルを変更していない

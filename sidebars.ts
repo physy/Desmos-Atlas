@@ -22,6 +22,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "発展",
+      items: ["advanced/greece", "advanced/texcommands"],
+    },
+    {
+      type: "category",
       label: "記事作成ガイド",
       items: [
         "writing-guide/contributing",
